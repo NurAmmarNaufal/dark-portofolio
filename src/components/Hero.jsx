@@ -7,11 +7,11 @@ import { Icon } from "@iconify/react";
 const Hero = () => {
   return (
     <>
-      <div className="mt-[32px] md:flex pb-10">
+      <div className="mt-[62px] md:flex pb-10">
         <div className="md:mt-[136px]">
           <p className="text-[32px] font-semibold">
             Nan is a <span className="text-[#0099DB]"> web designer </span> and{" "}
-            <span className="text-[#0099DB]"> front-end developer </span>{" "}
+            <span className="text-[#0099DB]"> full-stack developer </span>{" "}
           </p>
           <p className="text-[#ABB2BF] mt-[25px]">
             He crafts responsive websites where technologies meet creativity
@@ -21,11 +21,11 @@ const Hero = () => {
           </button>
         </div>
         <div>
-          <div className="mt-8 flex items-center justify-center h-[200px] md:h-[364px] md:w-[433px] relative">
+          <div className="mt-8 flex items-center justify-center h-[250px] md:h-[364px] md:w-[433px] relative">
             <img
               src={hero}
               alt="hero"
-              className="grayscale h-[200px] md:h-[364px] md:w-[433px] z-50"
+              className="grayscale h-[250px] md:h-[364px] md:w-[433px] z-50"
             />
             <img
               src={bg_line}
@@ -62,12 +62,12 @@ const Hero = () => {
             color="#abb2bf"
             className="absolute w-10 h-10 -bottom-6 bg-[#282C33] right-2"
           />
-          <p className="p-5 text-right text-[24px] font-medium">
-            With great power comes great electricity bill
+          <p className="p-5 text-right text-[16px] md:text-[24px] font-medium">
+          if today impossible, tomorrow im_possible, the day after tomorrow im master !
           </p>
         </div>
-        <p className="p-3 border border-white w-40 text-[24px] font-medium">
-          - Dr. Who
+        <p className="p-3 border border-white w-40 text-[16px] md:text-[24px] font-medium">
+          - Nan
         </p>
       </div>
     </>
