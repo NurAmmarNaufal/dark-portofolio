@@ -13,7 +13,7 @@ const Skills = () => {
         <hr className="ml-5 border-0 h-[1px] w-full md:w-[300px] bg-[#0099DB]" />
       </div>
       <div className="md:flex justify-between">
-        <img src={pattern} alt="pattern" className="scale-90" />
+        <img src={pattern} alt="pattern" className="w-[349px] h-[248px] my-5" />
         <div className="flex gap-5 flex-wrap md:mt-20">
           <div>
             <div className="w-[150px] h-auto border border-white">
@@ -43,7 +43,7 @@ const Skills = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="flex gap-5 md:inline">
             <div className="w-[150px] h-auto border border-white">
               <p className="font-semibold p-2 border-b">Tools</p>
               <div className="font-normal text-[#ABB2BF] p-2 flex flex-wrap gap-3">

@@ -21,8 +21,8 @@ const Projects = () => {
       </div>
 
       {/* card */}
-      <div className="py-[50px] flex gap-3 overflow-x-auto md:overflow-x-hidden snap-x snap-mandatory">
-        <div className="snap-center flex-shrink-0 w-full md:w-[290px] h-auto border border-slate-200 mx-auto">
+      <div className="py-[50px] flex gap-3 overflow-x-auto lg:overflow-x-hidden snap-x snap-mandatory">
+        <div className="snap-center flex-shrink-0  w-full md:w-[290px] h-auto border border-slate-200 mx-auto">
           <img
             src="https://source.unsplash.com/1000x900/?clouds"
             alt="img"

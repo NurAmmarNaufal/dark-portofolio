@@ -1,5 +1,6 @@
 import React from "react";
 import about from "../assets/about.png";
+import dots from "../assets/dots.png";
 
 const Aboutme = () => {
   return (
@@ -15,23 +16,25 @@ const Aboutme = () => {
         <div className="flex-1 text-[#ABB2BF]">
           <p className="mt-[50px]">Hello, i'm Nur Ammar Naufal short Nan</p>
           <p className="my-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-            sapiente voluptatem tenetur quas, ratione voluptas quae laborum
-            officiis repellat numquam itaque rem quidem consequuntur enim
-            eligendi maiores praesentium, quis nobis.
+            I’m a self-taught front-end developer based in Doha, Qatar. I can
+            develop responsive websites from scratch and raise them into modern
+            user-friendly web experiences.
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, unde
-            nisi aspernatur quo delectus obcaecati cum eaque. Veritatis, aut
-            non!
+            Transforming my creativity and knowledge into a websites has been my
+            passion for over a year. I have been helping various clients to
+            establish their presence online. I always strive to learn about the
+            newest technologies and frameworks.
           </p>
           <button className="border border-[#0099DB] py-1 px-3 mt-5 hover:bg-[#00567b] text-white font-medium ">
             Read more {"->"}
           </button>
         </div>
         <div className="scale-75 md:scale-100">
-          <div className="border-b border-[#0099DB]">
+          <div className="border-b border-[#0099DB] relative">
             <img src={about} alt="hero" className="grayscale" />
+            <img src={dots} alt="dots" className="absolute bottom-9 right-0" />
+            <img src={dots} alt="dots" className="absolute top-0 -z-10" />
           </div>
         </div>
       </div>
