@@ -16,7 +16,7 @@ const Aboutme = () => {
         <div className="flex-1 text-[#ABB2BF]">
           <p className="mt-[50px]">Hello, i'm Nur Ammar Naufal short Nan</p>
           <p className="my-5">
-            I’m a self-taught front-end developer based in Doha, Qatar. I can
+            I’m a self-taught full-stack developer based in Doha, Qatar. I can
             develop responsive websites from scratch and raise them into modern
             user-friendly web experiences.
           </p>
