@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import { Icon } from "@iconify/react";
 import Skills from "./components/Skills";
+import Aboutme from "./components/Aboutme";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,6 +22,7 @@ function App() {
         <Hero />
         <Projects />
         <Skills />
+        <Aboutme />
       </div>
     </div>
   );

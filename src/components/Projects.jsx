@@ -1,6 +1,11 @@
 import React from "react";
 
 const Projects = () => {
+
+  function weather (){
+    window.open("https://weather-station-two.vercel.app/")
+  }
+
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -33,7 +38,7 @@ const Projects = () => {
             <p className="my-[16px]">
               app for current weather and forecast every 3 hours forward
             </p>
-            <button className="hover:text-white h-[35px] w-[110px] border border-[#0099DB] hover:bg-[#00567b]">
+            <button className="hover:text-white h-[35px] w-[110px] border border-[#0099DB] hover:bg-[#00567b]" onClick={weather}>
               Visit {"~~>"}
             </button>
           </div>
