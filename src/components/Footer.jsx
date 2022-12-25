@@ -43,7 +43,7 @@ export const Footer = () => {
             </div>
           </div>
         </div>
-        <p className="text-[#ABB2BF] text-[10px] md:text-[13px] flex justify-center md:mt-20">© Copyright 2023. Made by Nan</p>
+        <p className="text-[#ABB2BF] text-[10px] md:text-[13px] flex justify-center md:mt-10">© Copyright 2023. Made by Nur Ammar Naufal</p>
       </div>
     </div>
   );

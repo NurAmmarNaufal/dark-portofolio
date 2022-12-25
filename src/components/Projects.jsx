@@ -7,7 +7,7 @@ const Projects = () => {
   }
 
   return (
-    <div>
+    <div id="projects" className="scroll-mt-16">
       <div className="flex items-center justify-between">
         <div className="font-medium text-[32px] flex items-center">
           <h5>

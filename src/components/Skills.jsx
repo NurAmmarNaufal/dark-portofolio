@@ -5,7 +5,7 @@ import pattern from "../assets/pattern.png";
 
 const Skills = () => {
   return (
-    <div className="pb-10 mt-10">
+    <div id="skills" className="pb-10 mt-10 scroll-mt-16">
       <div className="font-medium text-[32px] flex items-center">
         <h5>
           <span className="text-[#0099DB]">#</span>skills

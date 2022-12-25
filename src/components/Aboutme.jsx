@@ -4,7 +4,7 @@ import dots from "../assets/dots.png";
 
 const Aboutme = () => {
   return (
-    <div className="mt-10 pb-10">
+    <div id="about_me" className="mt-10 pb-10 scroll-mt-16">
       <div className="font-medium text-[32px] flex items-center">
         <h5>
           <span className="text-[#0099DB]">#</span>about_me
@@ -14,7 +14,7 @@ const Aboutme = () => {
 
       <div className="md:flex justify-between gap-20">
         <div className="flex-1 text-[#ABB2BF]">
-          <p className="mt-[50px]">Hello, i'm Nur Ammar Naufal short Nan</p>
+          <p className="mt-[50px]">Hello, i'm Nur Ammar Naufal short <span className="font-medium border-b-2 border-[#0099DB]">Nan</span></p>
           <p className="my-5">
             I’m a self-taught full-stack developer based in Doha, Qatar. I can
             develop responsive websites from scratch and raise them into modern

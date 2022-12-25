@@ -6,7 +6,7 @@ import { Icon } from "@iconify/react";
 
 const Hero = () => {
   return (
-    <>
+    <div id="home" className="scroll-mt-16">
       <div className="mt-[62px] md:flex pb-10">
         <div className="md:mt-[136px]">
           <p className="text-[32px] font-semibold">
@@ -70,7 +70,7 @@ const Hero = () => {
           - Nan
         </p>
       </div>
-    </>
+    </div>
   );
 };
 

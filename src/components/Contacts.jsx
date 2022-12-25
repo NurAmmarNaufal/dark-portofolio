@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 
 const Contacts = () => {
   return (
-    <div className="mt-10 pb-10">
+    <div id="contacts" className="mt-10 pb-10 scroll-mt-16">
       <div className="font-medium text-[32px] flex items-center">
         <h5>
           <span className="text-[#0099DB]">#</span>contacts
