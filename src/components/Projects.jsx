@@ -1,4 +1,5 @@
 import React from "react";
+import weatherImg from "../assets/weather.png"
 
 const Projects = () => {
 
@@ -24,14 +25,14 @@ const Projects = () => {
       <div className="py-[50px] flex gap-3 overflow-x-auto lg:overflow-x-hidden snap-x snap-mandatory">
         <div className="snap-center flex-shrink-0  w-full md:w-[290px] h-auto border border-slate-200 mx-auto">
           <img
-            src="https://source.unsplash.com/1000x900/?clouds"
+            src={weatherImg}
             alt="img"
             className="h-[200px] w-full"
           />
           <div className="flex gap-3 border-y p-1 pl-3">
-            <p>HTML</p>
-            <p>Js</p>
-            <p>C++</p>
+            <p>React</p>
+            <p>Tailwind</p>
+            <p>Vite</p>
           </div>
           <div className="p-4 text-[#ABB2BF]">
             <p className="font-medium text-[24px] text-white">Wether Station</p>
