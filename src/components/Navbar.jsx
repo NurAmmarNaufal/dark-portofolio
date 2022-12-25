@@ -2,7 +2,7 @@ import logo from "../assets/logo.png";
 
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);

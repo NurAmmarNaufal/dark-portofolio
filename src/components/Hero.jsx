@@ -44,7 +44,7 @@ const Hero = () => {
               <span className="font-medium text-[16px] text-[#ABB2BF]">
                 Currently working on{" "}
               </span>
-              Portfolio
+              SIAB
             </p>
           </div>
         </div>
