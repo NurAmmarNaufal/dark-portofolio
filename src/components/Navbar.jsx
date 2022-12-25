@@ -66,14 +66,14 @@ const Navbar = () => {
               <div
                 className={`text-[#ABB2BF] font-semibold text-[20px] flex flex-col p-3 ml-2`}
               >
-                <a href="#home">
-                  <span className="text-[#0099DB]">#</span>home
+                <a href="#projects">
+                  <span className="text-[#0099DB]">#</span>projects
                 </a>
-                <a href="#works">
-                  <span className="text-[#0099DB]">#</span>works
+                <a href="#skills">
+                  <span className="text-[#0099DB]">#</span>skills
                 </a>
-                <a href="#about-me">
-                  <span className="text-[#0099DB]">#</span>about-me
+                <a href="#about_me">
+                  <span className="text-[#0099DB]">#</span>about_me
                 </a>
                 <a href="#contacts">
                   <span className="text-[#0099DB]">#</span>contacts
