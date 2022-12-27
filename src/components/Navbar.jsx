@@ -10,7 +10,11 @@ const Navbar = () => {
   function toggleMenu() {
     setToggle(!toggle);
   }
-  console.log(toggle);
+
+  function lang (e) {
+    console.log(e.target.value)
+  }
+
   return (
     <div className="bg-slate-300">
       <div className="flex justify-between items-center pt-[19px] md:pt-[32px] mb-2 relative">
@@ -35,10 +39,10 @@ const Navbar = () => {
               <a href="#contacts">
                 <span className="text-[#0099DB]">#</span>contacts
               </a>
-              <div className="flex items-center cursor-pointer">
-                <a href="#EN">EN</a>
-                <Icon icon="material-symbols:keyboard-arrow-down-rounded" />
-              </div>
+              <select name="" id="" className="cursor-pointer bg-transparent" onChange={lang}>
+                <option value="en">EN</option>
+                <option value="id">ID</option>
+              </select>
             </div>
 
             <div className="md:hidden">
@@ -59,33 +63,58 @@ const Navbar = () => {
               )}
             </div>
             <div
-              className={`absolute top-14 -right-0 border-4 border-[#5a6270] bg-[#282C33] w-[200px] h-[240px] ${
+              className={`absolute top-14 -right-0 border-4 border-[#5a6270] bg-[#282C33] w-[200px] h-auto ${
                 toggle ? "inline" : "hidden"
               }`}
             >
               <div
                 className={`text-[#ABB2BF] font-semibold text-[20px] flex flex-col p-3 ml-2`}
               >
-                <a href="#projects">
+                <a href="#projects" className="py-1">
                   <span className="text-[#0099DB]">#</span>projects
                 </a>
-                <a href="#skills">
+                <a href="#skills" className="py-1">
                   <span className="text-[#0099DB]">#</span>skills
                 </a>
-                <a href="#about_me">
+                <a href="#about_me" className="py-1">
                   <span className="text-[#0099DB]">#</span>about_me
                 </a>
-                <a href="#contacts">
+                <a href="#contacts" className="py-1">
                   <span className="text-[#0099DB]">#</span>contacts
                 </a>
-                <div className="flex items-center cursor-pointer">
+                <div className="flex items-center cursor-pointer py-1">
                   <a href="#EN">EN</a>
                   <Icon icon="material-symbols:keyboard-arrow-down-rounded" />
                 </div>
                 <div className="flex mt-5 gap-3 items-center justify-center">
-                  <Icon icon="mingcute:discord-line" width="28" />
-                  <Icon icon="ant-design:instagram-outlined" width="28" />
-                  <Icon icon="jam:linkedin-square" width="24" />
+                  <Icon
+                    icon="ri:github-fill"
+                    width="25"
+                    className="cursor-pointer hover:opacity-100 opacity-60"
+                    onClick={() => {
+                      window.open("https://github.com/NurAmmarNaufal");
+                    }}
+                  />
+                  <Icon
+                    icon="jam:linkedin-square"
+                    width="25"
+                    className="cursor-pointer hover:opacity-100 opacity-60"
+                    onClick={() => {
+                      window.open(
+                        "https://www.linkedin.com/in/nur-ammar-naufal-363609117/"
+                      );
+                    }}
+                  />
+                  <Icon
+                    icon="ant-design:instagram-outlined"
+                    width="27"
+                    className="cursor-pointer hover:opacity-100 opacity-60"
+                    onClick={() => {
+                      window.open(
+                        "https://www.instagram.com/nurammarnaufal19/"
+                      );
+                    }}
+                  />
                 </div>
               </div>
             </div>

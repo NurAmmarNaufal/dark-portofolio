@@ -14,9 +14,9 @@ export const Footer = () => {
               <p className="text-[24px] ml-2 font-medium tracking-widest">
                 Nan
               </p>
-              <p className="text-[16px] text-[#ABB2BF] ml-5">
+              {/* <p className="text-[12px] text-[#ABB2BF] ml-5">
                 nurammarnaufal@gmail.com
-              </p>
+              </p> */}
             </div>
             <p className="my-5 text-[#ABB2BF]">
               Web designer and front-end developer based in Qatar
@@ -26,24 +26,37 @@ export const Footer = () => {
             <p className="font-medium text-[20px] mb-2">Media</p>
             <div className="flex gap-2 items-center">
               <Icon
-                icon="mingcute:discord-line"
-                width="27"
+                icon="ri:github-fill"
+                width="25"
                 className="cursor-pointer hover:opacity-100 opacity-60"
-              />
-              <Icon
-                icon="ant-design:instagram-outlined"
-                width="27"
-                className="cursor-pointer hover:opacity-100 opacity-60"
+                onClick={() => {
+                  window.open("https://github.com/NurAmmarNaufal");
+                }}
               />
               <Icon
                 icon="jam:linkedin-square"
                 width="25"
                 className="cursor-pointer hover:opacity-100 opacity-60"
+                onClick={() => {
+                  window.open(
+                    "https://www.linkedin.com/in/nur-ammar-naufal-363609117/"
+                  );
+                }}
+              />
+              <Icon
+                icon="ant-design:instagram-outlined"
+                width="27"
+                className="cursor-pointer hover:opacity-100 opacity-60"
+                onClick={() => {
+                  window.open("https://www.instagram.com/nurammarnaufal19/");
+                }}
               />
             </div>
           </div>
         </div>
-        <p className="text-[#ABB2BF] text-[10px] md:text-[13px] flex justify-center md:mt-10">© Copyright 2023. Made by Nur Ammar Naufal</p>
+        <p className="text-[#ABB2BF] text-[10px] md:text-[13px] flex justify-center md:mt-10">
+          © Copyright 2023. Made by Nur Ammar Naufal
+        </p>
       </div>
     </div>
   );

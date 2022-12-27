@@ -12,7 +12,7 @@ const Skills = () => {
         </h5>
         <hr className="ml-5 border-0 h-[1px] w-full md:w-[300px] bg-[#0099DB]" />
       </div>
-      <div className="md:flex justify-between">
+      <div className="md:flex md:justify-between">
         <img src={pattern} alt="pattern" className="w-[349px] h-[248px] my-5" />
         <div className="flex gap-5 flex-wrap md:mt-20">
           <div>

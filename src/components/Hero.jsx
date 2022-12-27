@@ -62,11 +62,11 @@ const Hero = () => {
             color="#abb2bf"
             className="absolute w-10 h-10 -bottom-6 bg-[#282C33] right-2"
           />
-          <p className="p-5 text-right text-[16px] md:text-[24px] font-medium">
+          <p className="p-5 text-right text-[16px] md:text-[24px] font-normal">
           if today impossible, tomorrow im_possible, the day after tomorrow im master !
           </p>
         </div>
-        <p className="p-3 border border-white w-40 text-[16px] md:text-[24px] font-medium">
+        <p className="p-3 border border-white w-40 text-[16px] md:text-[24px] font-normal">
           - Nan
         </p>
       </div>
