@@ -14,17 +14,17 @@ export const Footer = () => {
               <p className="text-[24px] ml-2 font-medium tracking-widest">
                 Nan
               </p>
-              {/* <p className="text-[12px] text-[#ABB2BF] ml-5">
+              <p className="text-[13px] text-[#ABB2BF] ml-5">
                 nurammarnaufal@gmail.com
-              </p> */}
+              </p>
             </div>
-            <p className="my-5 text-[#ABB2BF]">
+            <p className="my-5">
               Web designer and front-end developer based in Qatar
             </p>
           </div>
           <div className="my-5">
             <p className="font-medium text-[20px] mb-2">Media</p>
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-3 items-center">
               <Icon
                 icon="ri:github-fill"
                 width="25"

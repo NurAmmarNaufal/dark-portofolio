@@ -16,9 +16,11 @@ const Hero = () => {
           <p className="text-[#ABB2BF] mt-[25px]">
             He crafts responsive websites where technologies meet creativity
           </p>
-          <button className="h-[37px] w-[148px] border-[#0099DB] border mt-[15px] font-medium text-[16px] hover:bg-[#00567b]">
+          <a href="#contacts">
+          <button className="h-[37px] w-[148px] border-[#0099DB] border mt-[15px] font-medium text-[16px] hover:bg-[#00567b]" title="contact me via email or whatsapp">
             Contact me !!
           </button>
+          </a>
         </div>
         <div>
           <div className="mt-8 flex items-center justify-center h-[250px] md:h-[364px] md:w-[433px] relative">

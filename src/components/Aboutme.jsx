@@ -14,7 +14,10 @@ const Aboutme = () => {
 
       <div className="md:flex justify-between gap-20">
         <div className="flex-1 text-[#ABB2BF]">
-          <p className="mt-[50px]">Hello, i'm Nur Ammar Naufal short <span className="font-medium border-b-2 border-[#0099DB]">Nan</span></p>
+          <p className="mt-[50px]">
+            Hello, i'm Nur Ammar Naufal short{" "}
+            <span className="font-medium border-b-2 border-[#0099DB]">Nan</span>
+          </p>
           <p className="my-5">
             I’m a self-taught full-stack developer based in Doha, Qatar. I can
             develop responsive websites from scratch and raise them into modern
@@ -26,8 +29,15 @@ const Aboutme = () => {
             establish their presence online. I always strive to learn about the
             newest technologies and frameworks.
           </p>
-          <button className="border border-[#0099DB] py-1 px-3 mt-5 hover:bg-[#00567b] text-white font-medium ">
-            Read more {"->"}
+          <button
+            className="border border-[#0099DB] py-1 px-3 mt-5 hover:bg-[#00567b] text-white font-medium"
+            onClick={() => {
+              window.open(
+                "https://www.linkedin.com/in/nur-ammar-naufal-363609117/"
+              );
+            }}
+          >
+            Know more {"->"}
           </button>
         </div>
         <div className="scale-75 md:scale-100">

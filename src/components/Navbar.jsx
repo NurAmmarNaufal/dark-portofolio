@@ -2,17 +2,19 @@ import logo from "../assets/logo.png";
 
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-// import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const [xval, setXval] = useState(0);
 
   function toggleMenu() {
     setToggle(!toggle);
+    toggle ? setXval(0) : setXval(-175)
   }
 
-  function lang (e) {
-    console.log(e.target.value)
+  function lang(e) {
+    console.log(e.target.value);
   }
 
   return (
@@ -39,7 +41,12 @@ const Navbar = () => {
               <a href="#contacts">
                 <span className="text-[#0099DB]">#</span>contacts
               </a>
-              <select name="" id="" className="cursor-pointer bg-transparent" onChange={lang}>
+              <select
+                name=""
+                id=""
+                className="cursor-pointer bg-transparent"
+                onChange={lang}
+              >
                 <option value="en">EN</option>
                 <option value="id">ID</option>
               </select>
@@ -62,10 +69,17 @@ const Navbar = () => {
                 />
               )}
             </div>
-            <div
-              className={`absolute top-14 -right-0 border-4 border-[#5a6270] bg-[#282C33] w-[200px] h-auto ${
-                toggle ? "inline" : "hidden"
-              }`}
+            <motion.div
+              animate={{
+                x: xval
+              }}
+              transition={{
+                duration: 1
+              }}
+              className={`absolute top-14 -right-[175px] border-4 border-[#5a6270] bg-[#282C33] w-[200px] h-auto `} 
+              // ${
+              //   toggle ? "inline" : "hidden"
+              // }
             >
               <div
                 className={`text-[#ABB2BF] font-semibold text-[20px] flex flex-col p-3 ml-2`}
@@ -82,10 +96,15 @@ const Navbar = () => {
                 <a href="#contacts" className="py-1">
                   <span className="text-[#0099DB]">#</span>contacts
                 </a>
-                <div className="flex items-center cursor-pointer py-1">
-                  <a href="#EN">EN</a>
-                  <Icon icon="material-symbols:keyboard-arrow-down-rounded" />
-                </div>
+                <select
+                  name=""
+                  id=""
+                  className="cursor-pointer bg-transparent w-12 mt-2"
+                  onChange={lang}
+                >
+                  <option value="en">EN</option>
+                  <option value="id">ID</option>
+                </select>
                 <div className="flex mt-5 gap-3 items-center justify-center">
                   <Icon
                     icon="ri:github-fill"
@@ -117,7 +136,7 @@ const Navbar = () => {
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
