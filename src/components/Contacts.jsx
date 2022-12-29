@@ -3,14 +3,13 @@ import { Icon } from "@iconify/react";
 import emailjs from "@emailjs/browser";
 
 const Contacts = () => {
-
   const form = useRef();
   const [menu, setMenu] = useState(true);
-  const [status, setStatus] = useState('Send');
+  const [status, setStatus] = useState("Send");
 
   const push = (e) => {
     e.preventDefault();
-    setStatus('Sending...')
+    setStatus("Sending...");
     console.log(form.current);
     emailjs
       .sendForm(
@@ -22,17 +21,15 @@ const Contacts = () => {
       .then(
         (result) => {
           console.log(result.text);
-          setStatus('sended')
+          setStatus("sended");
           setTimeout(() => {
             setMenu(!menu);
-          }, 1000)
+          }, 1000);
         },
         (error) => {
           console.log(error.text);
         }
       );
-
-      
   };
 
   return (
@@ -53,12 +50,17 @@ const Contacts = () => {
           <p className="font-semibold text-[16px] text-white">
             Message me here
           </p>
-          <div className="flex items-center text-xs flex-sh py-4">
+          <div
+            className="flex items-center text-xs flex-sh py-4 cursor-pointer hover:text-white" title="direct to whatsapp"
+            onClick={() => {
+              window.open("https://wa.me/6285325089508");
+            }}
+          >
             <Icon icon="la:whatsapp" width="22" />
             <p className="ml-1">+62 85325089508</p>
           </div>
           <div
-            className="flex items-center text-xs flex-sh cursor-pointer hover:text-white"
+            className="flex items-center text-xs flex-sh cursor-pointer hover:text-white" title="send via email"
             onClick={() => {
               setMenu(!menu);
             }}
@@ -84,8 +86,12 @@ const Contacts = () => {
             setMenu(!menu);
           }}
         />
-        <div >
-          <form ref={form} onSubmit={push} className="flex flex-col gap-5 px-5 w-full text-sm pb-5">
+        <div>
+          <form
+            ref={form}
+            onSubmit={push}
+            className="flex flex-col gap-5 px-5 w-full text-sm pb-5"
+          >
             <label htmlFor="name" className="flex flex-col">
               Name
               <input

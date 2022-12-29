@@ -36,7 +36,7 @@ const Projects = () => {
           <div className="p-4 text-[#ABB2BF]">
             <p className="font-medium text-[24px] text-white">Wether Station</p>
             <p className="my-[16px]">
-              app for current weather and forecast every 3 hours forward
+              app for current weather all city around the world and forecast every 3 hours forward
             </p>
             <button className="hover:text-white h-[35px] w-[110px] border border-[#0099DB] hover:bg-[#00567b]" onClick={() => {window.open("https://weather-station-two.vercel.app/")}}>
               Visit {"~~>"}
