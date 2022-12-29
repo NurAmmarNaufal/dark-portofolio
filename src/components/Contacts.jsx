@@ -50,7 +50,7 @@ const Contacts = () => {
           <p className="font-semibold text-[16px] text-white">
             Message me here
           </p>
-          <div
+          {/* <div
             className="flex items-center text-xs flex-sh py-4 cursor-pointer hover:text-white" title="direct to whatsapp"
             onClick={() => {
               window.open("https://wa.me/6285325089508");
@@ -58,9 +58,9 @@ const Contacts = () => {
           >
             <Icon icon="la:whatsapp" width="22" />
             <p className="ml-1">+62 85325089508</p>
-          </div>
+          </div> */}
           <div
-            className="flex items-center text-xs flex-sh cursor-pointer hover:text-white" title="send via email"
+            className="flex items-center text-xs flex-sh cursor-pointer hover:text-white mt-4" title="send via email"
             onClick={() => {
               setMenu(!menu);
             }}
