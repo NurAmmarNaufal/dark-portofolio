@@ -99,7 +99,7 @@ const Hero = () => {
             {quote?.text}
           </p>
         </div>
-        <p className="p-3 border border-white text-[16px] md:text-[24px] font-normal">
+        <p className="p-3 border border-white text-[16px] md:text-[24px] font-normal pt-5 md:pt-3">
           - {quote?.author}
         </p>
       </div>
