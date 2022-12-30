@@ -71,19 +71,19 @@ const Projects = () => {
             src="https://source.unsplash.com/1000x900/?savana"
             alt="img"
             className="h-[200px] w-full cursor-pointer"
-            onClick= {() => {window.open('https://source.unsplash.com/1000x900/?whale')}}
+            onClick= {() => {window.open('https://google-translate-roan.vercel.app/')}}
           />
           <div className="flex gap-3 border-y p-1 pl-3">
-            <p>HTML</p>
-            <p>Js</p>
-            <p>C++</p>
+            <p>React</p>
+            <p>Vite</p>
+            <p>GoogleTranslate-Api</p>
           </div>
           <div className="p-4 text-[#ABB2BF]">
-            <p className="font-medium text-[24px] text-white">Wether Station</p>
+            <p className="font-medium text-[24px] text-white">Translator</p>
             <p className="my-[16px]">
-              app for current weather and for cast everu 3 hours forward
+              app for translate languages
             </p>
-            <button className="hover:text-white h-[35px] w-[110px] border border-[#0099DB] hover:bg-[#00567b]">
+            <button className="hover:text-white h-[35px] w-[110px] border border-[#0099DB] hover:bg-[#00567b]" onClick= {() => {window.open('https://google-translate-roan.vercel.app/')}}>
               Visit {"~~>"}
             </button>
           </div>
