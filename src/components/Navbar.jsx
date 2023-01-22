@@ -29,22 +29,23 @@ const Navbar = () => {
             <div
               className={`text-[#ABB2BF] text-[16px] hidden md:flex md:gap-5`}
             >
-              <a href="#projects">
+              <a href="#projects" className="hover:text-white">
                 <span className="text-[#0099DB]">#</span>projects
               </a>
-              <a href="#skills">
+              <a href="#skills" className="hover:text-white">
                 <span className="text-[#0099DB]">#</span>skills
               </a>
-              <a href="#about_me">
+              <a href="#about_me" className="hover:text-white">
                 <span className="text-[#0099DB]">#</span>about_me
               </a>
-              <a href="#contacts">
+              <a href="#contacts" className="hover:text-white">
                 <span className="text-[#0099DB]">#</span>contacts
               </a>
               <select
                 name=""
                 id=""
-                className="cursor-pointer bg-transparent"
+                className="bg-transparent"
+                disabled
                 onChange={lang}
               >
                 <option value="en">EN</option>

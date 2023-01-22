@@ -5,8 +5,10 @@ module.exports = {
     extend: {
       fontFamily: {
         'Fira-code': 'Fira Code'
-      }
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 }

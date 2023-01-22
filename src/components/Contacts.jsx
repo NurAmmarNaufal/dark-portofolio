@@ -60,7 +60,7 @@ const Contacts = () => {
             <p className="ml-1">+62 85325089508</p>
           </div> */}
           <div
-            className="flex items-center text-xs flex-sh cursor-pointer hover:text-white mt-4" title="send via email"
+            className="flex items-center text-xs flex-sh cursor-pointer hover:text-white mt-4" title="send message via email"
             onClick={() => {
               setMenu(!menu);
             }}

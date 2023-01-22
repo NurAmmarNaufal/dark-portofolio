@@ -19,7 +19,7 @@ export const Footer = () => {
               </p>
             </div>
             <p className="my-5">
-              Web designer and front-end developer based in Qatar
+              Web designer and full-stack developer based in Qatar
             </p>
           </div>
           <div className="my-5">
