@@ -2,10 +2,17 @@ import { createClient } from "contentful"
 
 const Contentful = (props) => {
 
-    const client = createClient({
-        space: import.meta.env.VITE_VERCEL_SPACE_ID,
-        accessToken: import.meta.env.VITE_VERCEL_ACCESS_TOKEN,
+    const key = {
+        id: import.meta.env.VITE_VERCEL_SPACE_ID,
+        token: import.meta.env.VITE_VERCEL_ACCESS_TOKEN,
         host: import.meta.env.VITE_VERCEL_HOST,
+    }
+    // console.log(key)
+
+    const client = createClient({
+        space: key.id,
+        accessToken: key.token,
+        host: key.host,
     })
 
     const getAuthor = async () => {

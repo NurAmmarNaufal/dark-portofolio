@@ -37,7 +37,7 @@ export const Footer = () => {
               {contents.map((content, i) => {
                 if (content.fields.socialMediaTitle !== "email") {
                   return (
-                    <div>
+                    <div key={i}>
                       <Icon
                         icon={content?.fields.urlIcon}
                         width="25"
