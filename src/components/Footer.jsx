@@ -26,9 +26,6 @@ export const Footer = () => {
               <p className="text-[24px] ml-2 font-medium tracking-widest">
                 Nan
               </p>
-              {/* <p className="text-[13px] text-[#ABB2BF] ml-5">
-                nurammarnaufal@gmail.com
-              </p> */}
             </div>
             <p className="my-5">
               Web designer and full-stack developer based in Qatar
