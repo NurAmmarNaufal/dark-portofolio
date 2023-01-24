@@ -1,4 +1,4 @@
-import hero from "../assets/hero.png";
+import Contentful from "../auth/Contentful";
 import bg_line from "../assets/logo2.png";
 import dots from "../assets/dots.png";
 
@@ -6,6 +6,10 @@ import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 
 const Hero = () => {
+
+  const { getAuthor } = Contentful('author');
+
+  const [content, setContent] = useState()
   const [data, setData] = useState();
   const [quote, setQuote] = useState({
     author: "Nan",
@@ -13,6 +17,9 @@ const Hero = () => {
   });
 
   useEffect(() => {
+    getAuthor().then((response) => {
+      setContent(response.items[0].fields);
+    });
     async function a() {
       await fetch("https://type.fit/api/quotes")
         .then((response) => response.json())
@@ -39,7 +46,7 @@ const Hero = () => {
             <span className="text-[#0099DB]"> full-stack developer </span>{" "}
           </p>
           <p className="text-[#ABB2BF] mt-[25px]">
-            He crafts responsive websites where technologies meet creativity
+            {content?.description.content[0].content[0].value}
           </p>
           <a href="#contacts">
             <button
@@ -53,7 +60,7 @@ const Hero = () => {
         <div>
           <div className="mt-8 flex items-center justify-center h-[250px] md:h-[364px] md:w-[433px] relative">
             <img
-              src={hero}
+              src={content?.photo.fields.file.url}
               alt="hero"
               className="grayscale h-[250px] md:h-[364px] md:w-[433px] z-50"
             />
@@ -72,7 +79,7 @@ const Hero = () => {
             <div className="w-4 h-4 bg-[#0099DB] ml-2" />
             <p className="font-medium text-[16px] text-[#ABB2BF] pl-2">
               Currently working on{" "}
-              <span className="font-semibold text-white cursor-pointer hover:border-[#0099DB] hover:border-b-2 " onClick={() => {window.open('https://siagaairbersih.com/')}}>SIAB INDONESIA</span>
+              <span className="font-semibold text-white cursor-pointer hover:border-[#0099DB] hover:border-b-2 uppercase" onClick={() => {window.open('https://siagaairbersih.com/')}}>{content?.currentlyWorking}</span>
             </p>
           </div>
         </div>

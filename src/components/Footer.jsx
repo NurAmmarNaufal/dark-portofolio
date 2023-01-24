@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import logo from "../assets/logo.png";
 
+import Contentful from "../auth/Contentful";
+
 export const Footer = () => {
+  const { getAuthor } = Contentful("socialMedia");
+  const [contents, setContents] = useState([]);
+
+  useEffect(() => {
+    getAuthor().then((response) => {
+      // console.log(response.items);
+      setContents(response.items);
+    });
+  }, []);
+
   return (
     <div className="mt-10 pb-1">
       <hr className="border-0 h-[2px] w-full bg-[#ABB2BF]" />
@@ -14,9 +26,9 @@ export const Footer = () => {
               <p className="text-[24px] ml-2 font-medium tracking-widest">
                 Nan
               </p>
-              <p className="text-[13px] text-[#ABB2BF] ml-5">
+              {/* <p className="text-[13px] text-[#ABB2BF] ml-5">
                 nurammarnaufal@gmail.com
-              </p>
+              </p> */}
             </div>
             <p className="my-5">
               Web designer and full-stack developer based in Qatar
@@ -25,32 +37,22 @@ export const Footer = () => {
           <div className="my-5">
             <p className="font-medium text-[20px] mb-2">Media</p>
             <div className="flex gap-3 items-center">
-              <Icon
-                icon="ri:github-fill"
-                width="25"
-                className="cursor-pointer hover:opacity-100 opacity-60"
-                onClick={() => {
-                  window.open("https://github.com/NurAmmarNaufal");
-                }}
-              />
-              <Icon
-                icon="jam:linkedin-square"
-                width="25"
-                className="cursor-pointer hover:opacity-100 opacity-60"
-                onClick={() => {
-                  window.open(
-                    "https://www.linkedin.com/in/nur-ammar-naufal-363609117/"
+              {contents.map((content, i) => {
+                if (content.fields.socialMediaTitle !== "email") {
+                  return (
+                    <div>
+                      <Icon
+                        icon={content?.fields.urlIcon}
+                        width="25"
+                        className="cursor-pointer hover:opacity-100 opacity-60"
+                        onClick={() => {
+                          window.open(content?.fields.socialMediaUrl);
+                        }}
+                      />
+                    </div>
                   );
-                }}
-              />
-              <Icon
-                icon="ant-design:instagram-outlined"
-                width="27"
-                className="cursor-pointer hover:opacity-100 opacity-60"
-                onClick={() => {
-                  window.open("https://www.instagram.com/nurammarnaufal19/");
-                }}
-              />
+                }
+              })}
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import Contentful from "../auth/Contentful";
 import { Icon } from "@iconify/react";
 import emailjs from "@emailjs/browser";
 
@@ -6,6 +7,26 @@ const Contacts = () => {
   const form = useRef();
   const [menu, setMenu] = useState(true);
   const [status, setStatus] = useState("Send");
+
+  const [contents, setContents] = useState([]);
+  const [sosmed, setSosmed] = useState([]);
+
+  useEffect(() => {
+    for (let i = 0; i < 2; i++) {
+      if (i === 0) {
+        const { getAuthor } = Contentful("contacts");
+        getAuthor().then((response) => {
+          setContents(response.items[0].fields);
+        });
+      } else {
+        const { getAuthor } = Contentful("socialMedia");
+        getAuthor().then((response) => {
+          // console.log(response.items);
+          setSosmed(response.items);
+        });
+      }
+    }
+  }, []);
 
   const push = (e) => {
     e.preventDefault();
@@ -42,32 +63,28 @@ const Contacts = () => {
       </div>
 
       <div className="text-[#ABB2BF] flex flex-col md:flex-row mt-10 justify-between">
-        <p className="w-80">
-          I’m interested in freelance opportunities. However, if you have other
-          request or question, don’t hesitate to contact me
-        </p>
+        <p className="w-80">{contents?.description}</p>
         <div className="w-[230px] h-auto border border-white p-3 mt-9">
           <p className="font-semibold text-[16px] text-white">
             Message me here
           </p>
-          {/* <div
-            className="flex items-center text-xs flex-sh py-4 cursor-pointer hover:text-white" title="direct to whatsapp"
-            onClick={() => {
-              window.open("https://wa.me/6285325089508");
-            }}
-          >
-            <Icon icon="la:whatsapp" width="22" />
-            <p className="ml-1">+62 85325089508</p>
-          </div> */}
-          <div
-            className="flex items-center text-xs flex-sh cursor-pointer hover:text-white mt-4" title="send message via email"
-            onClick={() => {
-              setMenu(!menu);
-            }}
-          >
-            <Icon icon="clarity:email-solid" width="20" />
-            <p className="ml-1">nurammarnaufal@gmail.com</p>
-          </div>
+          {sosmed.map((media, i) => {
+            if (media?.fields.socialMediaTitle === "email") {
+              return (
+                <div
+                key={i}
+                  className="flex items-center text-xs flex-sh cursor-pointer hover:text-white mt-4"
+                  title="send message via email"
+                  onClick={() => {
+                    setMenu(!menu);
+                  }}
+                >
+                  <Icon icon={media.fields.urlIcon} width="20" />
+                  <p className="ml-1">{media.fields.socialMediaUrl}</p>
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
 

@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Contentful from "../auth/Contentful";
 import bg_line from "../assets/logo2.png";
 import dots from "../assets/dots.png";
 import pattern from "../assets/pattern.png";
 
 const Skills = () => {
+  const { getAuthor } = Contentful("skills");
+  const [contents, setContents] = useState([]);
+
+  useEffect(() => {
+    getAuthor().then((response) => {
+      // console.log(response.items);
+      setContents(response.items);
+    });
+  }, []);
+
   return (
     <div id="skills" className="pb-10 mt-10 scroll-mt-16">
       <div className="font-medium text-[32px] flex items-center">
@@ -19,9 +30,9 @@ const Skills = () => {
             <div className="w-[150px] h-auto border border-white">
               <p className="font-semibold p-2 border-b">Languages</p>
               <div className="font-normal text-[#ABB2BF] p-2">
-                <p>JavaScript</p>
-                <p>C++</p>
-                <p>Python</p>
+                {contents[4]?.fields.lists.map((list, i) => (
+                  <p key={i}>{list}</p>
+                ))}
               </div>
             </div>
           </div>
@@ -29,17 +40,17 @@ const Skills = () => {
             <div className="w-[150px] h-auto border border-white">
               <p className="font-semibold p-2 border-b">Databases</p>
               <div className="font-normal text-[#ABB2BF] p-2">
-                <p>PostgresSQL</p>
-                <p>Firebase</p>
+                {contents[3]?.fields.lists.map((list, i) => (
+                  <p key={i}>{list}</p>
+                ))}
               </div>
             </div>
             <div className="w-[150px] h-auto border border-white mt-5">
               <p className="font-semibold p-2 border-b">Other</p>
               <div className="font-normal text-[#ABB2BF] p-2 flex flex-wrap gap-3">
-                <p>HTML</p>
-                <p>CSS</p>
-                <p>REST</p>
-                <p>SCSS</p>
+                {contents[0]?.fields.lists.map((list, i) => (
+                  <p key={i}>{list}</p>
+                ))}
               </div>
             </div>
           </div>
@@ -47,19 +58,17 @@ const Skills = () => {
             <div className="w-[150px] h-auto border border-white">
               <p className="font-semibold p-2 border-b">Tools</p>
               <div className="font-normal text-[#ABB2BF] p-2 flex flex-wrap gap-3">
-                <p>VSCode</p>
-                <p>GitHub</p>
-                <p>Vercel</p>
-                <p>Figma</p>
+                {contents[2]?.fields.lists.map((list, i) => (
+                  <p key={i}>{list}</p>
+                ))}
               </div>
             </div>
             <div className="w-[150px] h-auto border border-white mt-5">
               <p className="font-semibold p-2 border-b">Framework</p>
               <div className="font-normal text-[#ABB2BF] p-2 flex flex-wrap gap-3">
-                <p>React-JS</p>
-                <p>Next.js</p>
-                <p>Express.js</p>
-                <p>TailwindCSS</p>
+                {contents[1]?.fields.lists.map((list, i) => (
+                  <p key={i}>{list}</p>
+                ))}
               </div>
             </div>
           </div>
