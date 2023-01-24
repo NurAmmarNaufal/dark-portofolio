@@ -7,7 +7,6 @@ const Contentful = (props) => {
         token: import.meta.env.VITE_VERCEL_ACCESS_TOKEN,
         host: import.meta.env.VITE_VERCEL_HOST,
     }
-    // console.log(key)
 
     const client = createClient({
         space: key.id,
@@ -16,7 +15,6 @@ const Contentful = (props) => {
     })
 
     const getAuthor = async () => {
-        console.log(props)
         try {
             const entries = await client.getEntries({
                 content_type: props,

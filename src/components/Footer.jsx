@@ -5,14 +5,26 @@ import logo from "../assets/logo.png";
 import Contentful from "../auth/Contentful";
 
 export const Footer = () => {
-  const { getAuthor } = Contentful("socialMedia");
+  
   const [contents, setContents] = useState([]);
+  const [paragraphFooter, setParagraphFooter] = useState();
 
   useEffect(() => {
-    getAuthor().then((response) => {
-      // console.log(response.items);
-      setContents(response.items);
-    });
+    for (let i = 0; i < 2; i++) {
+      if (i === 0) {
+        const { getAuthor } = Contentful("socialMedia");
+        getAuthor().then((response) => {
+          // console.log(response.items);
+          setContents(response.items);
+        });
+      } else {
+        const { getAuthor } = Contentful("aboutMe");
+        getAuthor().then((response) => {
+          // console.log(response.items[0].fields.paragraphFooter.content[0].content[0].value);
+          setParagraphFooter(response.items[0].fields.paragraphFooter.content[0].content[0].value);
+        });
+      }
+    }
   }, []);
 
   return (
@@ -28,7 +40,7 @@ export const Footer = () => {
               </p>
             </div>
             <p className="my-5">
-              Web designer and full-stack developer based in Qatar
+              {paragraphFooter}
             </p>
           </div>
           <div className="my-5">
