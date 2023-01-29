@@ -21,15 +21,18 @@ const Projects = () => {
           </h5>
           <hr className="ml-5 border-0 h-[1px] w-[20px] md:w-[300px] bg-[#0099DB]" />
         </div>
-        <div className="text-[16px] font-medium flex cursor-pointer md:hidden">
-          <p>Slide {"~~>"}</p>
-        </div>
+        <p className="text-[16px] font-medium flex cursor-pointer" onClick={() => window.open('/projects')}>
+          View All {"~~>"}
+        </p>
       </div>
 
       {/* card */}
       <div className="py-[50px] flex gap-3 overflow-x-auto lg:overflow-x-auto snap-x snap-mandatory scrollbar scrollbar-thumb-slate-500 scrollbar-track-slate-300">
         {contents?.map((content, i) => (
-          <div key={i} className="snap-center flex-shrink-0  w-full md:w-[290px] h-full border border-slate-200 mx-auto">
+          <div
+            key={i}
+            className="snap-center flex-shrink-0  w-full md:w-[290px] h-full border border-slate-200 mx-auto"
+          >
             <img
               src={content.fields.thumbnail.fields.file.url}
               alt="img"
@@ -38,7 +41,7 @@ const Projects = () => {
                 window.open(content.fields.url);
               }}
             />
-            <div className="flex gap-3 border-y p-1 pl-3 flex-wrap">    
+            <div className="flex gap-3 border-y p-1 pl-3 flex-wrap">
               <p>{content.fields.tech}</p>
             </div>
             <div className="p-4 text-[#ABB2BF]">
