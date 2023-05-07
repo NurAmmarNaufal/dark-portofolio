@@ -39,7 +39,7 @@ const Aboutme = () => {
             className="border border-[#0099DB] py-1 px-3 mt-5 hover:bg-[#00567b] text-white font-medium"
             onClick={() => {
               window.open(
-                "/about-me"
+                "/about-me", "_self",
               );
             }}
           >

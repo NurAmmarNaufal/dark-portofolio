@@ -21,7 +21,7 @@ const Projects = () => {
           </h5>
           <hr className="ml-5 border-0 h-[1px] w-[20px] md:w-[300px] bg-[#0099DB]" />
         </div>
-        <p className="text-[16px] font-medium flex cursor-pointer" onClick={() => window.open('/projects')}>
+        <p className="text-[16px] font-medium flex cursor-pointer" onClick={() => window.open('/projects', '_self')}>
           View All {"~~>"}
         </p>
       </div>

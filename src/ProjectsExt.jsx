@@ -67,8 +67,8 @@ function ProjectsExt() {
         <div className="fixed flex justify-between w-full top-0 pt-6 h-[50px] pr-[30px] md:pr-[340px] bg-[#282C33] z-[99]">
           <a
             className="flex items-center cursor-pointer"
-            onClick={() => window.close()}
-            title="close"
+            onClick={() => window.open('/', '_self')}
+            title="back"
           >
             <img src={logo} alt="logo" className="w-4 h-4" />
             <p className="text-base ml-2 font-medium tracking-widest">Nan</p>

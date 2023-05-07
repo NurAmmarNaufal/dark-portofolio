@@ -8,22 +8,29 @@ import { motion } from "framer-motion";
 import Contentful from "./auth/Contentful";
 
 function AboutmeExt() {
-  const [contents, setContents] = useState([]);
+  const [aboutMe, setAboutMe] = useState([]);
   const [sosmeds, setSosmeds] = useState([]);
+  const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 3; i++) {
       if (i === 0) {
         const { getAuthor } = Contentful("aboutMe");
         getAuthor().then((response) => {
-          // console.log(response.items);
-          setContents(response.items[0].fields);
+          console.log(response.items[0].fields);
+          setAboutMe(response.items[0].fields);
         });
-      } else {
+      } else if (i === 1) {
         const { getAuthor } = Contentful("socialMedia");
         getAuthor().then((response) => {
           // console.log(response.items);
           setSosmeds(response.items);
+        });
+      } else {
+        const { getAuthor } = Contentful("skills");
+        getAuthor().then((response) => {
+          // console.log("skills ", response.items)
+          setSkills(response.items);
         });
       }
     }
@@ -66,8 +73,8 @@ function AboutmeExt() {
         <div className="fixed flex justify-between w-full top-0 pt-6 h-[50px] pr-[30px] md:pr-[340px] bg-[#282C33] z-[99]">
           <a
             className="flex items-center cursor-pointer"
-            onClick={() => window.close()}
-            title="close"
+            onClick={() => window.open('/', '_self')}
+            title="back"
           >
             <img src={logo} alt="logo" className="w-4 h-4" />
             <p className="text-base ml-2 font-medium tracking-widest">Nan</p>
@@ -186,14 +193,14 @@ function AboutmeExt() {
                 </span>
               </p>
               <p className="my-5">
-                {contents.paragraph1?.content[0].content[0].value}
+                {aboutMe.paragraph1?.content[0].content[0].value}
               </p>
-              <p>{contents.paragraph2?.content[0].content[0].value}</p>
+              <p>{aboutMe.paragraph2?.content[0].content[0].value}</p>
             </div>
             <div className="scale-75 md:scale-100">
               <div className="border-b border-[#0099DB] relative">
                 <img
-                  src={contents.photo?.fields.file.url}
+                  src={aboutMe.photo?.fields.file.url}
                   alt="hero"
                   className="grayscale"
                 />
@@ -212,10 +219,19 @@ function AboutmeExt() {
           <p className="font-medium text-[32px] flex items-center">
             <span className="text-[#0099DB]">#</span>skills
           </p>
-          <div className="md:flex justify-between gap-20 text-[#ABB2BF]">
-            <div className="flex-1">
-              <p className="pt-2">put contents here</p>
-            </div>
+          <div className="md:flex gap-5 text-[#ABB2BF]">
+            {skills.map((skill, i) => (
+              <div key={i} className="mt-2 border border-white">
+                <p className="border-b text-white font-semibold px-2 py-1">
+                  {skill.fields.title}
+                </p>
+                <div className="flex flex-wrap">
+                {skill.fields.lists.map((field, i) => (
+                  <p key={i} className="py-1 px-2">{field}</p>
+                ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
         {/* my fun facts */}
@@ -223,10 +239,12 @@ function AboutmeExt() {
           <p className="font-medium text-[32px] flex items-center">
             <span className="text-[#0099DB]">#</span>my-fun-facts
           </p>
-          <div className="md:flex justify-between gap-20 text-[#ABB2BF]">
-            <div className="flex-1">
-              <p className="pt-2">put contents here</p>
-            </div>
+          <div className="md:flex gap-5 text-[#ABB2BF]">
+            {aboutMe?.funFact?.map((fact, i) => (
+              <p key={i} className="mt-2 py-1 px-2 border border-white">
+                {fact}
+              </p>
+            ))}
           </div>
         </div>
       </div>
