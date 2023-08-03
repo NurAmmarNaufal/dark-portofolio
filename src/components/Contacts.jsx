@@ -34,7 +34,7 @@ const Contacts = () => {
     console.log(form.current);
     emailjs
       .sendForm(
-        "service_3s2o2mo",
+        "service_5nnq4y4",
         "template_elwr35n",
         form.current,
         "aJPJQph_Tnec-cxMu"
