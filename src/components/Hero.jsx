@@ -42,8 +42,9 @@ const Hero = () => {
       <div className="mt-[62px] md:flex pb-10">
         <div className="md:mt-[100px]">
           <p className="text-[32px] font-semibold">
-            Nan is a <span className="text-[#0099DB]"> full-stack developer </span> and{" "}
-            <span className="text-[#0099DB]"> IoT Engineer </span>{" "}
+            Nan is a 
+            <span className="text-[#0099DB]"> web designer </span> and{" "}
+            <span className="text-[#0099DB]"> full-stack developer </span>{" "}
           </p>
           <p className="text-[#ABB2BF] mt-[25px]">
             {content?.description.content[0].content[0].value}
