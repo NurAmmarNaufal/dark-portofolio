@@ -44,12 +44,12 @@ const Hero = () => {
             {/* and{" "}
             <span className="text-[#0099DB]"> full-stack developer </span>{" "} */}
           </p>
-          <p className="text-[#ABB2BF] mt-[25px] w-[50%]">
+          <p className="text-[#ABB2BF] mt-[25px] md:w-[50%]">
             {content?.description.content[0].content[0].value}
           </p>
           <a href="#contacts">
             <button
-              className="h-[37px] w-[148px] border-[#0099DB] border mt-[15px] md:mt-[66px] font-medium text-[16px] hover:bg-[#00567b]"
+              className="h-[37px] w-[148px] border-[#0099DB] border mt-[20px] md:mt-[66px] font-medium text-[16px] hover:bg-[#00567b]"
               title="contact me via email"
             >
               Contact me !!
