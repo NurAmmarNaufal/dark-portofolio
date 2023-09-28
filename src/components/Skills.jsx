@@ -10,7 +10,6 @@ const Skills = () => {
 
   useEffect(() => {
     getAuthor().then((response) => {
-      console.log(response.items);
       setContents(response.items);
     });
   }, []);

@@ -5,48 +5,46 @@ import dots from "../assets/dots.png";
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 
+import vector from "./../assets/Vector.svg";
+
 const Hero = () => {
+  const { getAuthor } = Contentful("author");
 
-  const { getAuthor } = Contentful('author');
-
-  const [content, setContent] = useState()
-  const [data, setData] = useState();
+  const [content, setContent] = useState();
+  const [loadingQuotes, setLoadingQuotes] = useState();
   const [quote, setQuote] = useState({
     author: "Nan",
-    text: "if today impossible, tomorrow im_possible, the day after tomorrow im master !",
+    content:
+      "if today impossible, tomorrow im_possible, the day after tomorrow im master !",
   });
 
   useEffect(() => {
     getAuthor().then((response) => {
       setContent(response.items[0].fields);
     });
-    async function a() {
-      await fetch("https://type.fit/api/quotes")
-        .then((response) => response.json())
-        .then((dat) => {
-          setData(dat);
-        });
-    }
-    a();
   }, []);
 
-  function random() {
-    const num = parseInt(Math.random() * 1642);
-    console.log(data[num]);
-    setQuote(data[num]);
-  }
-  // 1643
+  const random = async () => {
+    setLoadingQuotes(true);
+    await fetch("https://api.quotable.io/random")
+      .then((response) => response.json())
+      .then((dat) => {
+        setQuote(dat);
+        setLoadingQuotes(false);
+      });
+  };
 
   return (
     <div id="home" className="scroll-mt-16">
       <div className="mt-[62px] md:flex pb-10">
         <div className="md:mt-[100px]">
-          <p className="text-[32px] font-semibold">
-            Nan is a 
-            <span className="text-[#0099DB]"> web designer </span> and{" "}
-            <span className="text-[#0099DB]"> full-stack developer </span>{" "}
+          <p className="text-[44px] font-semibold">
+            Hi👋, I'm Ammar a <span className="text-[#0099DB]">front-end </span>{" "}
+            developer
+            {/* and{" "}
+            <span className="text-[#0099DB]"> full-stack developer </span>{" "} */}
           </p>
-          <p className="text-[#ABB2BF] mt-[25px]">
+          <p className="text-[#ABB2BF] mt-[25px] w-[50%]">
             {content?.description.content[0].content[0].value}
           </p>
           <a href="#contacts">
@@ -80,7 +78,14 @@ const Hero = () => {
             <div className="w-4 h-4 bg-[#0099DB] ml-2" />
             <p className="font-medium text-[16px] text-[#ABB2BF] pl-2">
               Currently working on{" "}
-              <span className="font-semibold text-white cursor-pointer hover:border-[#0099DB] hover:border-b-2 uppercase" onClick={() => {window.open('https://siagaairbersih.com/')}}>{content?.currentlyWorking}</span>
+              <span
+                className="font-semibold text-white cursor-pointer hover:border-[#0099DB] hover:border-b-2 uppercase"
+                onClick={() => {
+                  window.open("https://siagaairbersih.com/");
+                }}
+              >
+                {content?.currentlyWorking}
+              </span>
             </p>
           </div>
         </div>
@@ -89,7 +94,9 @@ const Hero = () => {
         <div className="w-full  border border-white relative">
           <Icon
             icon="pepicons-pop:reload"
-            className="float-right m-2 cursor-pointer hover:-rotate-180 duration-500"
+            className={`float-right m-2 cursor-pointer hover:-rotate-180 duration-500 ${
+              loadingQuotes ? "animate-spin" : null
+            }`}
             width="20"
             onClick={random}
           />
@@ -105,7 +112,7 @@ const Hero = () => {
             className="absolute w-10 h-10 -bottom-6 bg-[#282C33] right-2"
           />
           <p className="p-5 text-right text-[16px] md:text-[24px] font-normal">
-            {quote?.text}
+            {quote?.content}
           </p>
         </div>
         <p className="p-3 border-x border-b border-white text-[16px] md:text-[24px] font-normal pt-5 md:pt-3">

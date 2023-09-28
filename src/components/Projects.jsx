@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Contentful from "../auth/Contentful";
+import { useNavigate } from "react-router-dom";
 
 const Projects = () => {
+  
+  const navigation = useNavigate()
+
   const { getAuthor } = Contentful("projects");
   const [contents, setContents] = useState([]);
 
@@ -21,7 +25,7 @@ const Projects = () => {
           </h5>
           <hr className="ml-5 border-0 h-[1px] w-[20px] md:w-[300px] bg-[#0099DB]" />
         </div>
-        <p className="text-[16px] font-medium flex cursor-pointer" onClick={() => window.open('/projects', '_self')}>
+        <p className="text-[16px] font-medium flex cursor-pointer" onClick={() => navigation('/projects')}>
           View All {"~~>"}
         </p>
       </div>

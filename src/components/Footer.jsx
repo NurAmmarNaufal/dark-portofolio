@@ -66,7 +66,7 @@ export const Footer = () => {
           </div>
         </div>
         <p className="text-[#ABB2BF] text-[10px] md:text-[13px] flex justify-center md:mt-10">
-          © Copyright 2023. Made by Nur Ammar Naufal
+          By Nur Ammar Naufal. Made with ❤️, 2023.
         </p>
       </div>
     </div>

@@ -239,7 +239,7 @@ function AboutmeExt() {
           <p className="font-medium text-[32px] flex items-center">
             <span className="text-[#0099DB]">#</span>my-fun-facts
           </p>
-          <div className="md:flex gap-5 text-[#ABB2BF]">
+          <div className="md:flex md:flex-wrap gap-5 text-[#ABB2BF]">
             {aboutMe?.funFact?.map((fact, i) => (
               <p key={i} className="mt-2 py-1 px-2 border border-white">
                 {fact}
