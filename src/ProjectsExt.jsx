@@ -6,24 +6,36 @@ import { Footer } from "./components/Footer";
 import { motion } from "framer-motion";
 
 import Contentful from "./auth/Contentful";
+import { useNavigate } from "react-router-dom";
 
 function ProjectsExt() {
+
+  const navigation = useNavigate()
+
   const [contents, setContents] = useState([]);
+  const [smallProjects, setSmallProjects] = useState([]);
   const [sosmeds, setSosmeds] = useState([]);
 
   useEffect(() => {
-    for (let i = 0; i < 2; i++) {
+    // window.scrollTo({top: 0})
+    for (let i = 0; i < 3; i++) {
       if (i === 0) {
         const { getAuthor } = Contentful("projects");
         getAuthor().then((response) => {
           // console.log(response.items);
           setContents(response.items);
         });
-      } else {
+      } else if (i === 1) {
         const { getAuthor } = Contentful("socialMedia");
         getAuthor().then((response) => {
           // console.log(response.items);
           setSosmeds(response.items);
+        });
+      } else {
+        const { getAuthor } = Contentful("smallProject");
+        getAuthor().then((response) => {
+          console.log(response.items);
+          setSmallProjects(response.items);
         });
       }
     }
@@ -67,7 +79,7 @@ function ProjectsExt() {
         <div className="fixed flex justify-between w-full top-0 pt-6 h-[50px] pr-[30px] md:pr-[340px] bg-[#282C33] z-[99]">
           <a
             className="flex items-center cursor-pointer"
-            onClick={() => window.open('/', '_self')}
+            onClick={() => navigation("/")}
             title="back"
           >
             <img src={logo} alt="logo" className="w-4 h-4" />
@@ -77,12 +89,13 @@ function ProjectsExt() {
             <div
               className={`text-[#ABB2BF] text-[16px] hidden md:flex items-center md:gap-5`}
             >
-              <a href="#small-projects" className="hover:text-white">
-                <span className="text-[#0099DB]">#</span>small-projects
-              </a>
               <a href="#complete-apps" className="hover:text-white">
                 <span className="text-[#0099DB]">#</span>complete-apps
               </a>
+              <a href="#small-projects" className="hover:text-white">
+                <span className="text-[#0099DB]">#</span>small-projects
+              </a>
+
               <select
                 name=""
                 id=""
@@ -177,33 +190,75 @@ function ProjectsExt() {
             <span className="text-[#0099DB]">/</span>projects
           </p>
           <p className="pt-2">List of my projects</p>
-          <p id="small-projects" className="font-medium text-[32px] flex items-center pt-10">
+        </div>
+        <div id="complete-apps" className="pt-10">
+          <p className="font-medium text-[32px] flex items-center">
+            <span className="text-[#0099DB]">#</span>complete-apps
+          </p>
+          <div className="md:flex justify-between gap-20 text-[#ABB2BF]">
+            <div className="flex-1">
+              <div className="py-[50px] flex gap-3 flex-wrap justify-between">
+                {contents?.map((content, i) => (
+                  <div
+                    key={i}
+                    className="flex-shrink-0 w-full md:w-[280px] h-full border border-slate-200"
+                  >
+                    <img
+                      src={content.fields.thumbnail.fields.file.url}
+                      alt="img"
+                      className="h-[200px] w-full cursor-pointer object-cover"
+                      onClick={() => {
+                        window.open(content.fields.url);
+                      }}
+                    />
+                    <div className="flex gap-3 border-y p-1 pl-3 flex-wrap">
+                      <p>{content.fields.tech}</p>
+                    </div>
+                    <div className="p-4 text-[#ABB2BF]">
+                      <p className="font-medium text-[24px] text-white">
+                        {content.fields.title}
+                      </p>
+                      <p className="my-[16px]">
+                        {content.fields.description.content[0].content[0].value}
+                      </p>
+                      <button
+                        className="hover:text-white h-[35px] w-[110px] border border-[#0099DB] hover:bg-[#00567b]"
+                        onClick={() => {
+                          window.open(content.fields.url);
+                        }}
+                      >
+                        Visit {"~~>"}
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="small-projects" className="pt-[70px]">
+          <p
+            id="small-projects"
+            className="font-medium text-[32px] flex items-center"
+          >
             <span className="text-[#0099DB]">#</span>small-projects
           </p>
-          <div className="py-[50px] flex gap-3 flex-wrap">
-            {contents?.map((content, i) => (
+          <div className="py-[50px] flex gap-3 flex-wrap justify-between">
+            {smallProjects?.map((content, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 w-full md:w-[290px] h-full border border-slate-200"
+                className="flex-shrink-0 w-full md:max-w-[280px] h-full border border-slate-200"
               >
-                <img
-                  src={content.fields.thumbnail.fields.file.url}
-                  alt="img"
-                  className="h-[200px] w-full cursor-pointer"
-                  onClick={() => {
-                    window.open(content.fields.url);
-                  }}
-                />
-                <div className="flex gap-3 border-y p-1 pl-3 flex-wrap">
-                  <p>{content.fields.tech}</p>
+                <div className="flex gap-3 border-y p-1 pl-3 flex-wrap text-[#ABB2BF]">
+                  {content.fields.technology.map((tech, i) => (
+                    <p key={i}>{tech}</p>
+                  ))}
                 </div>
                 <div className="p-4 text-[#ABB2BF]">
                   <p className="font-medium text-[24px] text-white">
                     {content.fields.title}
                   </p>
-                  <p className="my-[16px]">
-                    {content.fields.description.content[0].content[0].value}
-                  </p>
+                  <p className="my-[16px]">{content.fields.description}</p>
                   <button
                     className="hover:text-white h-[35px] w-[110px] border border-[#0099DB] hover:bg-[#00567b]"
                     onClick={() => {
@@ -215,16 +270,6 @@ function ProjectsExt() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-        <div id="complete-apps" className="pt-[70px]">
-          <p className="font-medium text-[32px] flex items-center">
-            <span className="text-[#0099DB]">#</span>complete-apps
-          </p>
-          <div className="md:flex justify-between gap-20 text-[#ABB2BF]">
-            <div className="flex-1">
-              <p className="pt-2">put contents here</p>
-            </div>
           </div>
         </div>
       </div>

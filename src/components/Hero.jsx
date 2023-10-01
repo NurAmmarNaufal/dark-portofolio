@@ -39,7 +39,7 @@ const Hero = () => {
       <div className="mt-[62px] md:flex pb-10">
         <div className="md:mt-[100px]">
           <p className="text-[44px] font-semibold">
-            Hi👋, I'm Ammar a <span className="text-[#0099DB]">front-end </span>{" "}
+            Hi👋, I'm Ammar a <span className="text-[#0099DB]">full-stack </span>{" "}
             developer
             {/* and{" "}
             <span className="text-[#0099DB]"> full-stack developer </span>{" "} */}
