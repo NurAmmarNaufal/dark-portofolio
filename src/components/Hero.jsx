@@ -5,8 +5,6 @@ import dots from "../assets/dots.png";
 import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 
-import vector from "./../assets/Vector.svg";
-
 const Hero = () => {
   const { getAuthor } = Contentful("author");
 
@@ -15,7 +13,7 @@ const Hero = () => {
   const [quote, setQuote] = useState({
     author: "Nan",
     content:
-      "if today impossible, tomorrow im_possible, the day after tomorrow im master !",
+      "if today impossible, tomorrow i'm_possible, the day after tomorrow i'm master !",
   });
 
   useEffect(() => {
@@ -39,8 +37,8 @@ const Hero = () => {
       <div className="mt-[62px] md:flex pb-10">
         <div className="md:mt-[100px]">
           <p className="text-[44px] font-semibold">
-            Hi👋, I'm Ammar a <span className="text-[#0099DB]">full-stack </span>{" "}
-            developer
+            Hi👋, I'm Ammar a{" "}
+            <span className="text-[#0099DB]">full-stack </span> developer
             {/* and{" "}
             <span className="text-[#0099DB]"> full-stack developer </span>{" "} */}
           </p>
@@ -77,14 +75,14 @@ const Hero = () => {
           <div className="h-[58px] border-solid border-white border flex items-center">
             <div className="w-4 h-4 bg-[#0099DB] ml-2" />
             <p className="font-medium text-[16px] text-[#ABB2BF] pl-2">
-              Currently working on{" "}
+              {content?.currentlyWorking}{" "}
               <span
                 className="font-semibold text-white cursor-pointer hover:border-[#0099DB] hover:border-b-2 uppercase"
                 onClick={() => {
-                  window.open("https://siagaairbersih.com/");
+                  window.open(`${content?.institutionLink}`);
                 }}
               >
-                {content?.currentlyWorking}
+                {content?.institution}
               </span>
             </p>
           </div>
@@ -92,14 +90,16 @@ const Hero = () => {
       </div>
       <div className="flex flex-col items-end mt-10 md:mt-24 justify-center md:mx-28 pb-10">
         <div className="w-full  border border-white relative">
-          <Icon
-            icon="pepicons-pop:reload"
-            className={`float-right m-2 cursor-pointer hover:-rotate-180 duration-500 ${
-              loadingQuotes ? "animate-spin" : null
-            }`}
-            width="20"
-            onClick={random}
-          />
+          <div title="click to make a change">
+            <Icon
+              icon="pepicons-pop:reload"
+              className={`float-right m-2 cursor-pointer hover:-rotate-180 duration-500 ${
+                loadingQuotes ? "animate-spin" : null
+              }`}
+              width="20"
+              onClick={random}
+            />
+          </div>
           <Icon
             icon="material-symbols:format-quote-rounded"
             color="#abb2bf"

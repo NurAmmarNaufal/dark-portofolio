@@ -5,20 +5,15 @@ import { useNavigate } from "react-router-dom";
 const Projects = () => {
   const navigation = useNavigate();
 
-  const { getAuthor } = Contentful("projects");
+  const { getAuthor } = Contentful("detailProject");
   const [contents, setContents] = useState([]);
-  const [projects, setProjects] = useState(["Satu", "Dua", "Tiga"]);
-  const [detail, setDetail] = useState([
-    "1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus aut aliquam tempore exercitationem ssumenda in possimus qui sunt perspiciatis voluptatibus?",
-    "2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus aut aliquam tempore exercitationem ssumenda in possimus qui sunt perspiciatis voluptatibus?, Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus aut aliquam tempore exercitationem ssumenda in possimus qui sunt perspiciatis voluptatibus",
-    "3. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  ]);
+
   const [state, setState] = useState(-1);
   const [stateCek, setStateCek] = useState(-1);
 
   useEffect(() => {
     getAuthor().then((response) => {
-      console.log(response.items);
+      // console.log(response.items);
       setContents(response.items);
     });
   }, []);
@@ -83,30 +78,29 @@ const Projects = () => {
             className="snap-center flex-shrink-0  w-full md:w-[280px] h-full border border-slate-200 mx-auto"
           >
             <img
-              src={content?.fields?.thumbnail?.fields.file.url}
+              src={content?.fields?.gallery[2]?.fields.file.url}
               alt="img"
-              className="h-[200px] w-full cursor-pointer"
-              onClick={() => {
-                window.open(content?.fields?.url);
-              }}
+              className=" w-full object-contain"
             />
             <div className="flex gap-3 border-y p-1 pl-3 flex-wrap">
-              <p>{content?.fields?.tech}</p>
+              {content?.fields?.tech?.map((x, i) => (
+                <p key={i}>{x}</p>
+              ))}
             </div>
             <div className="p-4 text-[#ABB2BF]">
               <p className="font-medium text-[24px] text-white">
                 {content?.fields?.title}
               </p>
               <p className="my-[16px]">
-                {content?.fields?.description.content[0].content[0].value}
+                {content?.fields?.description.content[0].content[0].value.split(' ').slice(0, 10).join(' ')}...
               </p>
               <button
                 className="hover:text-white h-[35px] w-[110px] border border-[#0099DB] hover:bg-[#00567b]"
                 onClick={() => {
-                  window.open(content?.fields?.url);
+                  navigation('/projects/siab-lora', {state: {data: contents[i]}})
                 }}
               >
-                Visit {"~~>"}
+                Detail {"~~>"}
               </button>
             </div>
           </div>

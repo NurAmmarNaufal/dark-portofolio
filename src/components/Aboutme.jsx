@@ -9,7 +9,7 @@ const Aboutme = () => {
 
   useEffect(() => {
     getAuthor().then((response) => {
-      // console.log(response.items[0].fields);
+      console.log(response.items[0].fields);
       setContents(response.items[0].fields);
     });
   }, []);
@@ -33,7 +33,7 @@ const Aboutme = () => {
             {contents.paragraph1?.content[0].content[0].value}
           </p>
           <p>
-          {contents.paragraph2?.content[0].content[0].value}
+          {contents.paragraph1?.content[1].content[0].value}
           </p>
           <button
             className="border border-[#0099DB] py-1 px-3 mt-5 hover:bg-[#00567b] text-white font-medium"

@@ -8,20 +8,27 @@ export const Footer = () => {
   
   const [contents, setContents] = useState([]);
   const [paragraphFooter, setParagraphFooter] = useState();
+  const [footerCredit, setFooterCredit] = useState();
 
   useEffect(() => {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 3; i++) {
       if (i === 0) {
         const { getAuthor } = Contentful("socialMedia");
         getAuthor().then((response) => {
           // console.log(response.items);
           setContents(response.items);
         });
-      } else {
+      } else if (i === 1) {
         const { getAuthor } = Contentful("aboutMe");
         getAuthor().then((response) => {
           // console.log(response.items[0].fields.paragraphFooter.content[0].content[0].value);
           setParagraphFooter(response.items[0].fields.paragraphFooter.content[0].content[0].value);
+        });
+      }else {
+        const { getAuthor } = Contentful("author");
+        getAuthor().then((response) => {
+          // console.log(response.items[0].fields.footerCredit);
+          setFooterCredit(response.items[0].fields.footerCredit)
         });
       }
     }
@@ -66,7 +73,7 @@ export const Footer = () => {
           </div>
         </div>
         <p className="text-[#ABB2BF] text-[10px] md:text-[13px] flex justify-center md:mt-10">
-          By Nur Ammar Naufal. Made with ❤️, 2023.
+          {footerCredit}
         </p>
       </div>
     </div>

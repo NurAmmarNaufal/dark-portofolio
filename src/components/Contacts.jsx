@@ -31,7 +31,7 @@ const Contacts = () => {
   const push = (e) => {
     e.preventDefault();
     setStatus("Sending...");
-    console.log(form.current);
+    console.log("sending email...");
     emailjs
       .sendForm(
         "service_5nnq4y4",

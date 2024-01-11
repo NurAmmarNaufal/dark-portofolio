@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import logo from "./assets/logo.png";
-import Navbar from "./components/Navbar";
 import { Icon } from "@iconify/react";
 import { Footer } from "./components/Footer";
 import { motion } from "framer-motion";
@@ -9,18 +8,17 @@ import Contentful from "./auth/Contentful";
 import { useNavigate } from "react-router-dom";
 
 function ProjectsExt() {
-
-  const navigation = useNavigate()
+  const navigation = useNavigate();
 
   const [contents, setContents] = useState([]);
   const [smallProjects, setSmallProjects] = useState([]);
   const [sosmeds, setSosmeds] = useState([]);
 
   useEffect(() => {
-    // window.scrollTo({top: 0})
+    window.scrollTo({top: 0})
     for (let i = 0; i < 3; i++) {
       if (i === 0) {
-        const { getAuthor } = Contentful("projects");
+        const { getAuthor } = Contentful("detailProject");
         getAuthor().then((response) => {
           // console.log(response.items);
           setContents(response.items);
@@ -34,7 +32,7 @@ function ProjectsExt() {
       } else {
         const { getAuthor } = Contentful("smallProject");
         getAuthor().then((response) => {
-          console.log(response.items);
+          // console.log(response.items);
           setSmallProjects(response.items);
         });
       }
@@ -89,8 +87,8 @@ function ProjectsExt() {
             <div
               className={`text-[#ABB2BF] text-[16px] hidden md:flex items-center md:gap-5`}
             >
-              <a href="#complete-apps" className="hover:text-white">
-                <span className="text-[#0099DB]">#</span>complete-apps
+              <a href="#big-projects" className="hover:text-white">
+                <span className="text-[#0099DB]">#</span>big-projects
               </a>
               <a href="#small-projects" className="hover:text-white">
                 <span className="text-[#0099DB]">#</span>small-projects
@@ -139,8 +137,8 @@ function ProjectsExt() {
                 <a href="#small-projects" className="hover:text-white">
                   <span className="text-[#0099DB]">#</span>small-projects
                 </a>
-                <a href="#complete-apps" className="hover:text-white">
-                  <span className="text-[#0099DB]">#</span>complete-apps
+                <a href="#big-projects" className="hover:text-white">
+                  <span className="text-[#0099DB]">#</span>big-projects
                 </a>
                 <select
                   name=""
@@ -191,9 +189,9 @@ function ProjectsExt() {
           </p>
           <p className="pt-2">List of my projects</p>
         </div>
-        <div id="complete-apps" className="pt-10">
+        <div id="big-projects" className="mt-5 scroll-mt-12">
           <p className="font-medium text-[32px] flex items-center">
-            <span className="text-[#0099DB]">#</span>complete-apps
+            <span className="text-[#0099DB]">#</span>big-projects
           </p>
           <div className="md:flex justify-between gap-20 text-[#ABB2BF]">
             <div className="flex-1">
@@ -201,33 +199,38 @@ function ProjectsExt() {
                 {contents?.map((content, i) => (
                   <div
                     key={i}
-                    className="flex-shrink-0 w-full md:w-[280px] h-full border border-slate-200"
+                    className="snap-center flex-shrink-0  w-full md:w-[280px] h-full border border-slate-200 mx-auto"
                   >
                     <img
-                      src={content.fields.thumbnail.fields.file.url}
+                      src={content?.fields?.gallery[2]?.fields.file.url}
                       alt="img"
-                      className="h-[200px] w-full cursor-pointer object-cover"
-                      onClick={() => {
-                        window.open(content.fields.url);
-                      }}
+                      className=" w-full object-contain"
                     />
                     <div className="flex gap-3 border-y p-1 pl-3 flex-wrap">
-                      <p>{content.fields.tech}</p>
+                      {content?.fields?.tech?.map((x, i) => (
+                        <p key={i}>{x}</p>
+                      ))}
                     </div>
                     <div className="p-4 text-[#ABB2BF]">
                       <p className="font-medium text-[24px] text-white">
-                        {content.fields.title}
+                        {content?.fields?.title}
                       </p>
                       <p className="my-[16px]">
-                        {content.fields.description.content[0].content[0].value}
+                        {content?.fields?.description.content[0].content[0].value
+                          .split(" ")
+                          .slice(0, 10)
+                          .join(" ")}
+                        ...
                       </p>
                       <button
                         className="hover:text-white h-[35px] w-[110px] border border-[#0099DB] hover:bg-[#00567b]"
                         onClick={() => {
-                          window.open(content.fields.url);
+                          navigation("/projects/siab-lora", {
+                            state: { data: contents[i] },
+                          });
                         }}
                       >
-                        Visit {"~~>"}
+                        Detail {"~~>"}
                       </button>
                     </div>
                   </div>
@@ -236,7 +239,7 @@ function ProjectsExt() {
             </div>
           </div>
         </div>
-        <div id="small-projects" className="pt-[70px]">
+        <div id="small-projects" className="scroll-mt-12">
           <p
             id="small-projects"
             className="font-medium text-[32px] flex items-center"

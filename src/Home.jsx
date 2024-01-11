@@ -44,7 +44,7 @@ function Home() {
           }
         })}
       </div>
-      <div id="container" className="md:mx-[100px] lg:mx-[171px] mx-4">
+      <div id="container" className="md:mx-[100px] lg:mx-[171px] mx-4 ">
         <Navbar />
         <Hero />
         <Projects />
