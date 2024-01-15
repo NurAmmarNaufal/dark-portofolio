@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from "react";
 import logo from "./../../assets/logo.png";
 import { Icon } from "@iconify/react";
-import { Footer } from "./../../components/Footer";
+import { Footer } from "../Footer";
 import { motion } from "framer-motion";
 
-import Contentful from "./../../auth/Contentful";
+import Contentful from "../../auth/Contentful";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const SiabLora = () => {
+const CompleteProject = () => {
   const navigation = useNavigate();
 
-  const [detailProject, setDetailProject] = useState(
-    useLocation().state.data.fields
-  );
+  const detailProject = useLocation().state.data.fields;
   const [sosmeds, setSosmeds] = useState([]);
 
+  const [imgPrev, setImgPrev] = useState(false);
+  const [imgPrevUrl, setImgPrevUrl] = useState("");
+
   useEffect(() => {
-    window.scrollTo({top: 0})
+    window.scrollTo({ top: 0 });
 
     const { getAuthor } = Contentful("socialMedia");
     getAuthor().then((response) => {
@@ -162,7 +163,14 @@ const SiabLora = () => {
         </div>
         <div className="pt-[70px]">
           <p className="font-medium text-[32px] flex items-center">
-            <span className="text-[#0099DB]">/</span><span className="hover:cursor-pointer hover:text-[#0099DB]" title="back" onClick={() => window.history.back()}>projects</span>
+            <span className="text-[#0099DB]">/</span>
+            <span
+              className="hover:cursor-pointer hover:text-[#0099DB]"
+              title="back"
+              onClick={() => window.history.back()}
+            >
+              projects
+            </span>
             <span className="text-[#0099DB]">/</span>detail
           </p>
         </div>
@@ -185,7 +193,14 @@ const SiabLora = () => {
           </div>
           <div className="flex gap-5 flex-wrap justify-around">
             {detailProject?.gallery?.map((img, i) => (
-              <div key={i} className="w-[400px] object-contain ">
+              <div
+                key={i}
+                className="w-[400px] object-contain cursor-pointer"
+                onClick={() => {
+                  setImgPrevUrl(img.fields.file.url);
+                  setImgPrev(true);
+                }}
+              >
                 <img src={img.fields.file.url} />
               </div>
             ))}
@@ -193,8 +208,24 @@ const SiabLora = () => {
         </article>
       </div>
       <Footer />
+
+      {/* popup image */}
+      {imgPrev && (
+        <div className="bg-black/50 fixed inset-0 z-[100] flex justify-center items-center">
+          <div className="h-[90%] w-[90%] relative">
+            <div
+              className="absolute -top-3 -right-3 bg-white h-8 w-8 border-2 rounded-full flex items-center justify-center cursor-pointer"
+              title="close"
+              onClick={() => setImgPrev(false)}
+            >
+              <p className="text-black text-[40px]">×</p>
+            </div>
+            <img src={imgPrevUrl} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default SiabLora;
+export default CompleteProject;

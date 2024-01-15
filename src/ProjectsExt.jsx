@@ -225,7 +225,7 @@ function ProjectsExt() {
                       <button
                         className="hover:text-white h-[35px] w-[110px] border border-[#0099DB] hover:bg-[#00567b]"
                         onClick={() => {
-                          navigation("/projects/siab-lora", {
+                          navigation("/projects/complete-project", {
                             state: { data: contents[i] },
                           });
                         }}
