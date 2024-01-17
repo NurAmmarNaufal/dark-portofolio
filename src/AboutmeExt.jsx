@@ -24,11 +24,11 @@ function AboutmeExt() {
           setAboutMe(response.items[0].fields);
 
           //go to hash
-          if (loc.hash) {
-            const targetElement = document.querySelector(loc.hash);
-            if (targetElement) {
-              targetElement.scrollIntoView({ behavior: "smooth" });
-            }
+          if (loc.hash === "#certificate") {
+            window.scrollTo({
+              top: document.documentElement.scrollHeight - window.innerHeight,
+              behavior: "smooth",
+            });
           }
         });
       } else if (i === 1) {
@@ -58,7 +58,6 @@ function AboutmeExt() {
   function lang(e) {
     console.log(e.target.value);
   }
-
 
   return (
     <div className="text-white font-Fira-code bg-[#282C33] h-full relative">
