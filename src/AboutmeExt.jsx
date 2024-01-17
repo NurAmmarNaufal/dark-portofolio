@@ -24,13 +24,14 @@ function AboutmeExt() {
           setAboutMe(response.items[0].fields);
 
           //go to hash
-          console.log(loc.hash)
-          if (loc.hash === "#certificate") {
-            window.scrollTo({
-              top: document.documentElement.scrollHeight - window.innerHeight,
-              behavior: "smooth",
-            });
-          }
+          setTimeout(() => {
+            if (loc.hash) {
+              const targetElement = document.querySelector(loc.hash);
+              if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth" });
+              }
+            }
+          }, 1000);
         });
       } else if (i === 1) {
         const { getAuthor } = Contentful("socialMedia");
