@@ -48,6 +48,7 @@ function AboutmeExt() {
     console.log(e.target.value);
   }
 
+
   return (
     <div className="text-white font-Fira-code bg-[#282C33] h-full relative">
       <div className="w-[32px] h-[311px] ml-[17px] hidden md:flex flex-col items-center gap-2 fixed">
@@ -88,6 +89,9 @@ function AboutmeExt() {
               </a>
               <a href="#my-fun-facts" className="hover:text-white">
                 <span className="text-[#0099DB]">#</span>my-fun-facts
+              </a>
+              <a href="#certificate" className="hover:text-white">
+                <span className="text-[#0099DB]">#</span>certificate
               </a>
               <select
                 name=""
@@ -254,6 +258,22 @@ function AboutmeExt() {
               <p key={i} className="mt-2 py-1 px-2 border border-white">
                 {fact}
               </p>
+            ))}
+          </div>
+        </div>
+        {/* my fun facts */}
+        <div id="certificate" className="pt-[70px]">
+          <p className="font-medium text-[32px] flex items-center">
+            <span className="text-[#0099DB]">#</span>certificate
+          </p>
+          <div className="flex flex-col mt-5 items-start text-[#ABB2BF]">
+            {aboutMe?.pdf?.map((pdf, i) => (
+              <button
+                key={i}
+                onClick={() => window.open(pdf.fields.file.url, "_blank")}
+              >
+                Download PDF {pdf.fields.title}
+              </button>
             ))}
           </div>
         </div>
