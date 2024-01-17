@@ -6,8 +6,11 @@ import { Footer } from "./components/Footer";
 import { motion } from "framer-motion";
 
 import Contentful from "./auth/Contentful";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function AboutmeExt() {
+  const loc = useLocation();
+
   const [aboutMe, setAboutMe] = useState([]);
   const [sosmeds, setSosmeds] = useState([]);
   const [skills, setSkills] = useState([]);
@@ -17,8 +20,16 @@ function AboutmeExt() {
       if (i === 0) {
         const { getAuthor } = Contentful("aboutMe");
         getAuthor().then((response) => {
-          console.log(response.items[0].fields);
+          // console.log(response.items[0].fields);
           setAboutMe(response.items[0].fields);
+
+          //go to hash
+          if (loc.hash) {
+            const targetElement = document.querySelector(loc.hash);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: "smooth" });
+            }
+          }
         });
       } else if (i === 1) {
         const { getAuthor } = Contentful("socialMedia");
