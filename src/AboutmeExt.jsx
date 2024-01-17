@@ -24,6 +24,7 @@ function AboutmeExt() {
           setAboutMe(response.items[0].fields);
 
           //go to hash
+          console.log(loc.hash)
           if (loc.hash === "#certificate") {
             window.scrollTo({
               top: document.documentElement.scrollHeight - window.innerHeight,
