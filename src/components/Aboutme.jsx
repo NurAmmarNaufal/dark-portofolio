@@ -9,7 +9,7 @@ const Aboutme = () => {
 
   useEffect(() => {
     getAuthor().then((response) => {
-      console.log(response.items[0].fields);
+      // console.log(response.items[0].fields);
       setContents(response.items[0].fields);
     });
   }, []);

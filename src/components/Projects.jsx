@@ -13,7 +13,7 @@ const Projects = () => {
 
   useEffect(() => {
     getAuthor().then((response) => {
-      console.log(response.items);
+      // console.log(response.items);
       setContents(response.items);
     });
   }, []);

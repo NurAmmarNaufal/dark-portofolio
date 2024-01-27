@@ -191,6 +191,16 @@ const CompleteProject = () => {
               </div>
             ))}
           </div>
+          {/* link */}
+          {detailProject?.link !== undefined && (
+            <button
+              className="h-[37px] w-[148px] border-[#0099DB] border mb-[20px] md:mb-[66px] font-medium text-[16px] hover:bg-[#00567b] self-start text-[#ABB2BF]"
+              title="demo the project"
+              onClick={() => window.open(detailProject?.link)}
+            >
+              Demo
+            </button>
+          )}
           <div className="flex gap-5 flex-wrap justify-around">
             {detailProject?.gallery?.map((img, i) => (
               <div
