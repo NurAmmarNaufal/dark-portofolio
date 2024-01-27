@@ -13,7 +13,7 @@ const Projects = () => {
 
   useEffect(() => {
     getAuthor().then((response) => {
-      // console.log(response.items);
+      console.log(response.items);
       setContents(response.items);
     });
   }, []);
@@ -78,9 +78,9 @@ const Projects = () => {
             className="snap-center flex-shrink-0  w-full md:w-[280px] h-full border border-slate-200 mx-auto"
           >
             <img
-              src={content?.fields?.gallery[2]?.fields.file.url}
+              src={content?.fields?.gallery[0]?.fields.file.url}
               alt="img"
-              className=" w-full object-contain"
+              className="w-full object-contain"
             />
             <div className="flex gap-3 border-y p-1 pl-3 flex-wrap">
               {content?.fields?.tech?.map((x, i) => (
