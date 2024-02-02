@@ -202,7 +202,7 @@ function ProjectsExt() {
                     className="snap-center flex-shrink-0  w-full md:w-[280px] h-full border border-slate-200 mx-auto"
                   >
                     <img
-                      src={content?.fields?.gallery[2]?.fields.file.url}
+                      src={content?.fields?.gallery[0]?.fields.file.url}
                       alt="img"
                       className=" w-full object-contain"
                     />
