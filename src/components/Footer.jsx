@@ -35,10 +35,10 @@ export const Footer = () => {
   }, []);
 
   return (
-    <div className="mt-10 pb-1">
+    <div className="mt-10 pb-1 w-full relative lg:px-10 xl:max-w-[1280px]">
       <hr className="border-0 h-[2px] w-full bg-[#ABB2BF]" />
-      <div className="md:mx-[100px] lg:mx-[171px] mx-4 my-5">
-        <div className="md:flex md:justify-between mt-10">
+      <div className="my-5">
+        <div className="md:flex md:justify-between mt-10 ">
           <div className="flex flex-col ">
             <div className="flex items-center ">
               <img src={logo} alt="logo" className="w-5 h-5" />

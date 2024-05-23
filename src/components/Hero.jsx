@@ -33,7 +33,7 @@ const Hero = () => {
   };
 
   return (
-    <div id="home" className="scroll-mt-16">
+    <div id="home" className="scroll-mt-16 lg:px-10">
       <div className="mt-[62px] md:flex pb-10">
         <div className="md:mt-[100px]">
           <p className="text-[44px] font-semibold">

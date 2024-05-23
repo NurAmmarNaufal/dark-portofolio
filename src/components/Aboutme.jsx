@@ -15,7 +15,7 @@ const Aboutme = () => {
   }, []);
 
   return (
-    <div id="about_me" className="mt-10 pb-10 scroll-mt-16">
+    <div id="about_me" className="mt-10 pb-10 scroll-mt-16 lg:px-10">
       <div className="font-medium text-[32px] flex items-center">
         <h5>
           <span className="text-[#0099DB]">#</span>about_me

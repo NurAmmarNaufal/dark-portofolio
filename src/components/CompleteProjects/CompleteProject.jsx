@@ -39,7 +39,7 @@ const CompleteProject = () => {
   }
 
   return (
-    <div className="text-white font-Fira-code bg-[#282C33] h-full relative">
+    <div className="text-white font-Fira-code bg-[#282C33] h-full relative  mx-4">
       <div className="w-[32px] h-[311px] ml-[17px] hidden md:flex flex-col items-center gap-2 fixed">
         <hr className="border-0 w-[2px] h-[200px] bg-white mb-3 opacity-60" />
         {sosmeds.map((sosmed, i) => {
@@ -59,7 +59,7 @@ const CompleteProject = () => {
           }
         })}
       </div>
-      <div id="container" className="md:mx-[100px] lg:mx-[171px] mx-4">
+      <div id="container" className="md:mx-[100px] lg:mx-[171px]">
         {/* <Navbar /> */}
         <div className="fixed flex justify-between w-full top-0 pt-6 h-[50px] pr-[30px] md:pr-[340px] bg-[#282C33] z-[99]">
           <a

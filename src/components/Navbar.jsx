@@ -10,7 +10,7 @@ const Navbar = () => {
 
   function toggleMenu() {
     setToggle(!toggle);
-    toggle ? setXval(0) : setXval(-175)
+    toggle ? setXval(0) : setXval(-175);
   }
 
   function lang(e) {
@@ -18,128 +18,121 @@ const Navbar = () => {
   }
 
   return (
-    <div className="bg-slate-300">
-      <div className="flex justify-between items-center pt-[19px] md:pt-[32px] mb-2 relative">
-        <div className="fixed flex justify-between w-full top-0 pt-6 h-[50px] pr-[30px] md:pr-[340px] bg-[#282C33] z-[99]">
-          <a className="flex items-center cursor-pointer" href="#home">
-            <img src={logo} alt="logo" className="w-4 h-4" />
-            <p className="text-base ml-2 font-medium tracking-widest">Nan</p>
+    <div className="fixed flex justify-between w-full xl:w-[1280px] top-0 pt-6 h-[50px] bg-[#282C33] z-[99] lg:px-10">
+      <a className="flex items-center cursor-pointer" href="/">
+        <img src={logo} alt="logo" className="w-4 h-4" />
+        <p className="text-base ml-2 font-medium tracking-widest">Nan</p>
+      </a>
+      <div className="relative">
+        <div className={`text-[#ABB2BF] text-[16px] hidden md:flex md:gap-5`}>
+          <a href="#projects" className="hover:text-white">
+            <span className="text-[#0099DB]">#</span>projects
           </a>
-          <div>
-            <div
-              className={`text-[#ABB2BF] text-[16px] hidden md:flex md:gap-5`}
-            >
-              <a href="#projects" className="hover:text-white">
-                <span className="text-[#0099DB]">#</span>projects
-              </a>
-              <a href="#skills" className="hover:text-white">
-                <span className="text-[#0099DB]">#</span>skills
-              </a>
-              <a href="#about_me" className="hover:text-white">
-                <span className="text-[#0099DB]">#</span>about_me
-              </a>
-              <a href="#contacts" className="hover:text-white">
-                <span className="text-[#0099DB]">#</span>contacts
-              </a>
-              <select
-                name=""
-                id=""
-                className="bg-transparent"
-                disabled
-                onChange={lang}
-              >
-                <option value="en">EN</option>
-                <option value="id">ID</option>
-              </select>
-            </div>
-
-            <div className="md:hidden">
-              {!toggle ? (
-                <Icon
-                  icon="ri:menu-3-fill"
-                  color="white"
-                  className="w-[24px] h-[24px]"
-                  onClick={toggleMenu}
-                />
-              ) : (
-                <Icon
-                  icon="ic:round-close"
-                  color="white"
-                  className="w-[24px] h-[24px]"
-                  onClick={toggleMenu}
-                />
-              )}
-            </div>
-            <motion.div
-              animate={{
-                x: xval
-              }}
-              transition={{
-                duration: 1
-              }}
-              className={`absolute top-14 -right-[175px] border-4 border-[#5a6270] bg-[#282C33] w-[200px] h-auto `} 
-              // ${
-              //   toggle ? "inline" : "hidden"
-              // }
-            >
-              <div
-                className={`text-[#ABB2BF] font-semibold text-[20px] flex flex-col p-3 ml-2`}
-              >
-                <a href="#projects" className="py-1">
-                  <span className="text-[#0099DB]">#</span>projects
-                </a>
-                <a href="#skills" className="py-1">
-                  <span className="text-[#0099DB]">#</span>skills
-                </a>
-                <a href="#about_me" className="py-1">
-                  <span className="text-[#0099DB]">#</span>about_me
-                </a>
-                <a href="#contacts" className="py-1">
-                  <span className="text-[#0099DB]">#</span>contacts
-                </a>
-                <select
-                  name=""
-                  id=""
-                  className="cursor-pointer bg-transparent w-12 mt-2"
-                  onChange={lang}
-                >
-                  <option value="en">EN</option>
-                  <option value="id">ID</option>
-                </select>
-                <div className="flex mt-5 gap-3 items-center justify-center">
-                  <Icon
-                    icon="ri:github-fill"
-                    width="25"
-                    className="cursor-pointer hover:opacity-100 opacity-60"
-                    onClick={() => {
-                      window.open("https://github.com/NurAmmarNaufal");
-                    }}
-                  />
-                  <Icon
-                    icon="jam:linkedin-square"
-                    width="25"
-                    className="cursor-pointer hover:opacity-100 opacity-60"
-                    onClick={() => {
-                      window.open(
-                        "https://www.linkedin.com/in/nur-ammar-naufal-363609117/"
-                      );
-                    }}
-                  />
-                  <Icon
-                    icon="ant-design:instagram-outlined"
-                    width="27"
-                    className="cursor-pointer hover:opacity-100 opacity-60"
-                    onClick={() => {
-                      window.open(
-                        "https://www.instagram.com/nurammarnaufal19/"
-                      );
-                    }}
-                  />
-                </div>
-              </div>
-            </motion.div>
-          </div>
+          <a href="#skills" className="hover:text-white">
+            <span className="text-[#0099DB]">#</span>skills
+          </a>
+          <a href="#about_me" className="hover:text-white">
+            <span className="text-[#0099DB]">#</span>about_me
+          </a>
+          <a href="#contacts" className="hover:text-white">
+            <span className="text-[#0099DB]">#</span>contacts
+          </a>
+          <select
+            name=""
+            id=""
+            className="bg-transparent"
+            disabled
+            onChange={lang}
+          >
+            <option value="en">EN</option>
+            <option value="id">ID</option>
+          </select>
         </div>
+
+        <div className="md:hidden absolute right-8">
+          {!toggle ? (
+            <Icon
+              icon="ri:menu-3-fill"
+              color="white"
+              className="w-[24px] h-[24px]"
+              onClick={toggleMenu}
+            />
+          ) : (
+            <Icon
+              icon="ic:round-close"
+              color="white"
+              className="w-[24px] h-[24px]"
+              onClick={toggleMenu}
+            />
+          )}
+        </div>
+
+        <motion.div
+          animate={{
+            x: xval,
+          }}
+          transition={{
+            duration: 1,
+          }}
+          className={`absolute top-14 -right-[175px] border-4 border-[#5a6270] bg-[#282C33] w-[200px] h-auto md:hidden block`}
+          // ${
+          //   toggle ? "inline" : "hidden"
+          // }
+        >
+          <div
+            className={`text-[#ABB2BF] font-semibold text-[20px] flex flex-col p-3 ml-2`}
+          >
+            <a href="#projects" className="py-1">
+              <span className="text-[#0099DB]">#</span>projects
+            </a>
+            <a href="#skills" className="py-1">
+              <span className="text-[#0099DB]">#</span>skills
+            </a>
+            <a href="#about_me" className="py-1">
+              <span className="text-[#0099DB]">#</span>about_me
+            </a>
+            <a href="#contacts" className="py-1">
+              <span className="text-[#0099DB]">#</span>contacts
+            </a>
+            <select
+              name=""
+              id=""
+              className="cursor-pointer bg-transparent w-12 mt-2"
+              onChange={lang}
+            >
+              <option value="en">EN</option>
+              <option value="id">ID</option>
+            </select>
+            <div className="flex mt-5 gap-3 items-center justify-center">
+              <Icon
+                icon="ri:github-fill"
+                width="25"
+                className="cursor-pointer hover:opacity-100 opacity-60"
+                onClick={() => {
+                  window.open("https://github.com/NurAmmarNaufal");
+                }}
+              />
+              <Icon
+                icon="jam:linkedin-square"
+                width="25"
+                className="cursor-pointer hover:opacity-100 opacity-60"
+                onClick={() => {
+                  window.open(
+                    "https://www.linkedin.com/in/nur-ammar-naufal-363609117/"
+                  );
+                }}
+              />
+              <Icon
+                icon="ant-design:instagram-outlined"
+                width="27"
+                className="cursor-pointer hover:opacity-100 opacity-60"
+                onClick={() => {
+                  window.open("https://www.instagram.com/nurammarnaufal19/");
+                }}
+              />
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );

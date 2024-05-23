@@ -54,7 +54,7 @@ const Contacts = () => {
   };
 
   return (
-    <div id="contacts" className="mt-10 pb-10 scroll-mt-16 relative">
+    <div id="contacts" className="mt-10 pb-10 scroll-mt-16 relative lg:px-10">
       <div className="font-medium text-[32px] flex items-center">
         <h5>
           <span className="text-[#0099DB]">#</span>contacts

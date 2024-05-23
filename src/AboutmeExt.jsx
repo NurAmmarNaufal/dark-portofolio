@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 
 import Contentful from "./auth/Contentful";
 import { useLocation, useNavigate } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
 function AboutmeExt() {
   const loc = useLocation();
@@ -62,7 +63,7 @@ function AboutmeExt() {
   }
 
   return (
-    <div className="text-white font-Fira-code bg-[#282C33] h-full relative">
+    <div className="text-white font-Fira-code bg-[#282C33] h-full relative mx-4">
       <div className="w-[32px] h-[311px] ml-[17px] hidden md:flex flex-col items-center gap-2 fixed">
         <hr className="border-0 w-[2px] h-[200px] bg-white mb-3 opacity-60" />
         {sosmeds.map((sosmed, i) => {
@@ -82,118 +83,8 @@ function AboutmeExt() {
           }
         })}
       </div>
-      <div id="container" className="md:mx-[100px] lg:mx-[171px] mx-4">
-        <div className="fixed flex justify-between w-full top-0 pt-6 h-[50px] pr-[30px] md:pr-[340px] bg-[#282C33] z-[99]">
-          <a
-            className="flex items-center cursor-pointer"
-            onClick={() => window.open("/", "_self")}
-            title="back"
-          >
-            <img src={logo} alt="logo" className="w-4 h-4" />
-            <p className="text-base ml-2 font-medium tracking-widest">Nan</p>
-          </a>
-          <div>
-            <div
-              className={`text-[#ABB2BF] text-[16px] hidden md:flex items-center md:gap-5`}
-            >
-              <a href="#skills" className="hover:text-white">
-                <span className="text-[#0099DB]">#</span>skills
-              </a>
-              <a href="#my-fun-facts" className="hover:text-white">
-                <span className="text-[#0099DB]">#</span>my-fun-facts
-              </a>
-              <a href="#certificate" className="hover:text-white">
-                <span className="text-[#0099DB]">#</span>certificate
-              </a>
-              <select
-                name=""
-                id=""
-                className="cursor-pointer bg-transparent w-12"
-                onChange={lang}
-              >
-                <option value="en">EN</option>
-                <option value="id">ID</option>
-              </select>
-            </div>
-
-            <div className="md:hidden">
-              {!toggle ? (
-                <Icon
-                  icon="ri:menu-3-fill"
-                  color="white"
-                  className="w-[24px] h-[24px]"
-                  onClick={toggleMenu}
-                />
-              ) : (
-                <Icon
-                  icon="ic:round-close"
-                  color="white"
-                  className="w-[24px] h-[24px]"
-                  onClick={toggleMenu}
-                />
-              )}
-            </div>
-            <motion.div
-              animate={{
-                x: xval,
-              }}
-              transition={{
-                duration: 1,
-              }}
-              className={`absolute top-14 -right-[175px] border-4 border-[#5a6270] bg-[#282C33] w-[200px] h-auto `}
-            >
-              <div
-                className={`text-[#ABB2BF] font-semibold text-[20px] flex flex-col p-3 ml-2`}
-              >
-                <a href="#skills" className="hover:text-white">
-                  <span className="text-[#0099DB]">#</span>skills
-                </a>
-                <a href="#my-fun-facts" className="hover:text-white">
-                  <span className="text-[#0099DB]">#</span>my-fun-facts
-                </a>
-                <select
-                  name=""
-                  id=""
-                  className="cursor-pointer bg-transparent w-12 mt-2"
-                  onChange={lang}
-                >
-                  <option value="en">EN</option>
-                  <option value="id">ID</option>
-                </select>
-                <div className="flex mt-5 gap-3 items-center justify-center">
-                  <Icon
-                    icon="ri:github-fill"
-                    width="25"
-                    className="cursor-pointer hover:opacity-100 opacity-60"
-                    onClick={() => {
-                      window.open("https://github.com/NurAmmarNaufal");
-                    }}
-                  />
-                  <Icon
-                    icon="jam:linkedin-square"
-                    width="25"
-                    className="cursor-pointer hover:opacity-100 opacity-60"
-                    onClick={() => {
-                      window.open(
-                        "https://www.linkedin.com/in/nur-ammar-naufal-363609117/"
-                      );
-                    }}
-                  />
-                  <Icon
-                    icon="ant-design:instagram-outlined"
-                    width="27"
-                    className="cursor-pointer hover:opacity-100 opacity-60"
-                    onClick={() => {
-                      window.open(
-                        "https://www.instagram.com/nurammarnaufal19/"
-                      );
-                    }}
-                  />
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
+      <div id="container" className="md:mx-[100px] lg:mx-[171px]">
+        <Navbar />
         {/* who am i */}
         <div className="pt-[70px]">
           <p className="font-medium text-[32px] flex items-center">

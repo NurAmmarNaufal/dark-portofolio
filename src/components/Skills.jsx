@@ -15,7 +15,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <div id="skills" className="pb-10 mt-10 scroll-mt-16">
+    <div id="skills" className="pb-10 mt-10 scroll-mt-16 lg:px-10">
       <div className="font-medium text-[32px] flex items-center">
         <h5>
           <span className="text-[#0099DB]">#</span>skills

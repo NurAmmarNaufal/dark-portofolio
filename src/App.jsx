@@ -14,7 +14,7 @@ function App() {
         <Route path="projects/complete-project" element={<CompleteProject />} />
         <Route path="about-me" element={<AboutmeExt />} />
 
-        <Route path="*" element={<NoPage />} />
+        <Route path="/*" element={<NoPage />} />
       </Route>
     </Routes>
   );
