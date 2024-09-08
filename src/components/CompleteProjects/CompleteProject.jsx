@@ -39,8 +39,8 @@ const CompleteProject = () => {
   }
 
   return (
-    <div className="text-white font-Fira-code bg-[#282C33] h-full relative  mx-4">
-      <div className="w-[32px] h-[311px] ml-[17px] hidden md:flex flex-col items-center gap-2 fixed">
+    <div className="text-white font-Fira-code bg-[#282C33] h-full relative flex flex-col items-center mx-4">
+      <div className="w-[32px] h-[311px] ml-[17px] hidden lg:flex flex-col items-center gap-2 fixed top-0 left-0 z-[100]">
         <hr className="border-0 w-[2px] h-[200px] bg-white mb-3 opacity-60" />
         {sosmeds.map((sosmed, i) => {
           if (sosmed.fields.socialMediaTitle !== "email") {
@@ -59,9 +59,9 @@ const CompleteProject = () => {
           }
         })}
       </div>
-      <div id="container" className="md:mx-[100px] lg:mx-[171px]">
+      <div id="container" className="md:mx-[100px] w-full xl:max-w-[1280px]">
         {/* <Navbar /> */}
-        <div className="fixed flex justify-between w-full top-0 pt-6 h-[50px] pr-[30px] md:pr-[340px] bg-[#282C33] z-[99]">
+        <div className="fixed flex justify-between w-full xl:w-[1280px] top-0 pt-6 h-[50px] bg-[#282C33] z-[99] lg:px-10">
           <a
             className="flex items-center cursor-pointer"
             onClick={() => navigation("/")}
@@ -78,7 +78,7 @@ const CompleteProject = () => {
                 name=""
                 id=""
                 disabled
-                className="bg-transparent w-12"
+                className="cursor-pointer bg-transparent w-12"
                 onChange={lang}
               >
                 <option value="en">EN</option>
@@ -86,7 +86,7 @@ const CompleteProject = () => {
               </select>
             </div>
 
-            <div className="md:hidden">
+            <div className="md:hidden absolute right-8 cursor-pointer">
               {!toggle ? (
                 <Icon
                   icon="ri:menu-3-fill"
@@ -110,7 +110,7 @@ const CompleteProject = () => {
               transition={{
                 duration: 1,
               }}
-              className={`absolute top-14 -right-[175px] border-4 border-[#5a6270] bg-[#282C33] w-[200px] h-auto `}
+              className={`absolute top-14 -right-[175px] border-4 border-[#5a6270] bg-[#282C33] w-[200px] h-auto md:hidden block`}
             >
               <div
                 className={`text-[#ABB2BF] font-semibold text-[20px] flex flex-col p-3 ml-2`}
@@ -161,61 +161,64 @@ const CompleteProject = () => {
             </motion.div>
           </div>
         </div>
-        <div className="pt-[70px]">
-          <p className="font-medium text-[32px] flex items-center">
-            <span className="text-[#0099DB]">/</span>
-            <span
-              className="hover:cursor-pointer hover:text-[#0099DB]"
-              title="back"
-              onClick={() => window.history.back()}
-            >
-              projects
-            </span>
-            <span className="text-[#0099DB]">/</span>detail
-          </p>
-        </div>
-        <article
-          id="complete-apps"
-          className="pt-10 flex flex-col items-center"
-        >
-          {/* title */}
-          <p className="font-medium text-[32px] flex items-center">
-            {detailProject.title}
-          </p>
-          {/* deskripsi */}
-          <div className="text-justify text-[#ABB2BF] mt-5">
-            {detailProject?.description?.content?.map((context, i) => (
-              <div key={i}>
-                <p>{context.content[0].value}</p>
-                <br />
-              </div>
-            ))}
-          </div>
-          {/* link */}
-          {detailProject?.link !== undefined && (
-            <button
-              className="h-[37px] w-[148px] border-[#0099DB] border mb-[20px] md:mb-[66px] font-medium text-[16px] hover:bg-[#00567b] self-start text-[#ABB2BF]"
-              title="demo the project"
-              onClick={() => window.open(detailProject?.link)}
-            >
-              Demo
-            </button>
-          )}
-          <div className="flex gap-5 flex-wrap justify-around">
-            {detailProject?.gallery?.map((img, i) => (
-              <div
-                key={i}
-                className="w-[400px] object-contain cursor-pointer"
-                onClick={() => {
-                  setImgPrevUrl(img.fields.file.url);
-                  setImgPrev(true);
-                }}
+
+        <div className=" lg:px-10">
+          <div className="pt-[70px]">
+            <p className="font-medium text-[32px] flex items-center">
+              <span className="text-[#0099DB]">/</span>
+              <span
+                className="hover:cursor-pointer hover:text-[#0099DB]"
+                title="back"
+                onClick={() => window.history.back()}
               >
-                <img src={img.fields.file.url} />
-              </div>
-            ))}
+                projects
+              </span>
+              <span className="text-[#0099DB]">/</span>detail
+            </p>
           </div>
-        </article>
+          <article
+            id="complete-apps"
+            className="pt-10 flex flex-col items-center"
+          >
+            {/* title */}
+            <p className="font-medium text-[32px] flex items-center">
+              {detailProject.title}
+            </p>
+            {/* deskripsi */}
+            <div className="text-justify text-[#ABB2BF] mt-5">
+              {detailProject?.description?.content?.map((context, i) => (
+                <div key={i}>
+                  <p>{context.content[0].value}</p>
+                  <br />
+                </div>
+              ))}
+            </div>
+            {/* link */}
+            {detailProject?.link !== undefined && (
+              <button
+                className="h-[37px] w-[148px] border-[#0099DB] border mb-[20px] md:mb-[66px] font-medium text-[16px] hover:bg-[#00567b] self-start text-[#ABB2BF]"
+                title="demo the project"
+                onClick={() => window.open(detailProject?.link)}
+              >
+                Demo
+              </button>
+            )}
+            <div className="flex gap-5 flex-wrap justify-around">
+              {detailProject?.gallery?.map((img, i) => (
+                <div
+                  key={i}
+                  className="w-[400px] object-contain cursor-pointer"
+                  onClick={() => {
+                    setImgPrevUrl(img.fields.file.url);
+                    setImgPrev(true);
+                  }}
+                >
+                  <img src={img.fields.file.url} />
+                </div>
+              ))}
+            </div>
+          </article>
+        </div>
       </div>
       <Footer />
 

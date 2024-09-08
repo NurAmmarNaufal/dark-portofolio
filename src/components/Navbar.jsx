@@ -49,7 +49,7 @@ const Navbar = () => {
           </select>
         </div>
 
-        <div className="md:hidden absolute right-8">
+        <div className="md:hidden absolute right-8 cursor-pointer">
           {!toggle ? (
             <Icon
               icon="ri:menu-3-fill"

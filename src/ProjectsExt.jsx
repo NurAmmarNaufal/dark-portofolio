@@ -15,7 +15,7 @@ function ProjectsExt() {
   const [sosmeds, setSosmeds] = useState([]);
 
   useEffect(() => {
-    window.scrollTo({top: 0})
+    window.scrollTo({ top: 0 });
     for (let i = 0; i < 3; i++) {
       if (i === 0) {
         const { getAuthor } = Contentful("detailProject");
@@ -52,8 +52,8 @@ function ProjectsExt() {
   }
 
   return (
-    <div className="text-white font-Fira-code bg-[#282C33] h-full relative">
-      <div className="w-[32px] h-[311px] ml-[17px] hidden md:flex flex-col items-center gap-2 fixed">
+    <div className="text-white font-Fira-code bg-[#282C33] h-full relative flex flex-col items-center mx-4">
+      <div className="w-[32px] h-[311px] ml-[17px] hidden lg:flex flex-col items-center gap-2 fixed top-0 left-0 z-[100]">
         <hr className="border-0 w-[2px] h-[200px] bg-white mb-3 opacity-60" />
         {sosmeds.map((sosmed, i) => {
           if (sosmed.fields.socialMediaTitle !== "email") {
@@ -72,9 +72,10 @@ function ProjectsExt() {
           }
         })}
       </div>
-      <div id="container" className="md:mx-[100px] lg:mx-[171px] mx-4">
-        {/* <Navbar /> */}
-        <div className="fixed flex justify-between w-full top-0 pt-6 h-[50px] pr-[30px] md:pr-[340px] bg-[#282C33] z-[99]">
+
+      <div id="container" className="md:mx-[100px] w-full xl:max-w-[1280px]">
+        {/* navbar */}
+        <div className="fixed flex justify-between w-full xl:w-[1280px] top-0 pt-6 h-[50px] bg-[#282C33] z-[99] lg:px-10">
           <a
             className="flex items-center cursor-pointer"
             onClick={() => navigation("/")}
@@ -83,7 +84,7 @@ function ProjectsExt() {
             <img src={logo} alt="logo" className="w-4 h-4" />
             <p className="text-base ml-2 font-medium tracking-widest">Nan</p>
           </a>
-          <div>
+          <div className="relative">
             <div
               className={`text-[#ABB2BF] text-[16px] hidden md:flex items-center md:gap-5`}
             >
@@ -105,7 +106,7 @@ function ProjectsExt() {
               </select>
             </div>
 
-            <div className="md:hidden">
+            <div className="md:hidden absolute right-8 cursor-pointer">
               {!toggle ? (
                 <Icon
                   icon="ri:menu-3-fill"
@@ -129,7 +130,7 @@ function ProjectsExt() {
               transition={{
                 duration: 1,
               }}
-              className={`absolute top-14 -right-[175px] border-4 border-[#5a6270] bg-[#282C33] w-[200px] h-auto `}
+              className={`absolute top-14 -right-[175px] border-4 border-[#5a6270] bg-[#282C33] w-[200px] h-auto md:hidden block`}
             >
               <div
                 className={`text-[#ABB2BF] font-semibold text-[20px] flex flex-col p-3 ml-2`}
@@ -183,96 +184,98 @@ function ProjectsExt() {
             </motion.div>
           </div>
         </div>
-        <div className="pt-[70px]">
-          <p className="font-medium text-[32px] flex items-center">
-            <span className="text-[#0099DB]">/</span>projects
-          </p>
-          <p className="pt-2">List of my projects</p>
-        </div>
-        <div id="big-projects" className="mt-5 scroll-mt-12">
-          <p className="font-medium text-[32px] flex items-center">
-            <span className="text-[#0099DB]">#</span>big-projects
-          </p>
-          <div className="md:flex justify-between gap-20 text-[#ABB2BF]">
-            <div className="flex-1">
-              <div className="py-[50px] flex gap-3 flex-wrap justify-between">
-                {contents?.map((content, i) => (
-                  <div
-                    key={i}
-                    className="snap-center flex-shrink-0  w-full md:w-[280px] h-full border border-slate-200 mx-auto"
-                  >
-                    <img
-                      src={content?.fields?.gallery[0]?.fields.file.url}
-                      alt="img"
-                      className=" w-full object-contain"
-                    />
-                    <div className="flex gap-3 border-y p-1 pl-3 flex-wrap">
-                      {content?.fields?.tech?.map((x, i) => (
-                        <p key={i}>{x}</p>
-                      ))}
+        <div className=" lg:px-10">
+          <div className="pt-[70px]">
+            <p className="font-medium text-[32px] flex items-center">
+              <span className="text-[#0099DB]">/</span>projects
+            </p>
+            <p className="pt-2">List of my projects</p>
+          </div>
+          <div id="big-projects" className="mt-5 scroll-mt-12">
+            <p className="font-medium text-[32px] flex items-center">
+              <span className="text-[#0099DB]">#</span>big-projects
+            </p>
+            <div className="md:flex justify-between gap-20 text-[#ABB2BF]">
+              <div className="flex-1">
+                <div className="py-[50px] flex gap-3 flex-wrap justify-between">
+                  {contents?.map((content, i) => (
+                    <div
+                      key={i}
+                      className="snap-center flex-shrink-0  w-full md:w-[280px] h-full border border-slate-200 mx-auto"
+                    >
+                      <img
+                        src={content?.fields?.gallery[0]?.fields.file.url}
+                        alt="img"
+                        className=" w-full object-contain"
+                      />
+                      <div className="flex gap-3 border-y p-1 pl-3 flex-wrap">
+                        {content?.fields?.tech?.map((x, i) => (
+                          <p key={i}>{x}</p>
+                        ))}
+                      </div>
+                      <div className="p-4 text-[#ABB2BF]">
+                        <p className="font-medium text-[24px] text-white">
+                          {content?.fields?.title}
+                        </p>
+                        <p className="my-[16px]">
+                          {content?.fields?.description.content[0].content[0].value
+                            .split(" ")
+                            .slice(0, 10)
+                            .join(" ")}
+                          ...
+                        </p>
+                        <button
+                          className="hover:text-white h-[35px] w-[110px] border border-[#0099DB] hover:bg-[#00567b]"
+                          onClick={() => {
+                            navigation("/projects/complete-project", {
+                              state: { data: contents[i] },
+                            });
+                          }}
+                        >
+                          Detail {"~~>"}
+                        </button>
+                      </div>
                     </div>
-                    <div className="p-4 text-[#ABB2BF]">
-                      <p className="font-medium text-[24px] text-white">
-                        {content?.fields?.title}
-                      </p>
-                      <p className="my-[16px]">
-                        {content?.fields?.description.content[0].content[0].value
-                          .split(" ")
-                          .slice(0, 10)
-                          .join(" ")}
-                        ...
-                      </p>
-                      <button
-                        className="hover:text-white h-[35px] w-[110px] border border-[#0099DB] hover:bg-[#00567b]"
-                        onClick={() => {
-                          navigation("/projects/complete-project", {
-                            state: { data: contents[i] },
-                          });
-                        }}
-                      >
-                        Detail {"~~>"}
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div id="small-projects" className="scroll-mt-12">
-          <p
-            id="small-projects"
-            className="font-medium text-[32px] flex items-center"
-          >
-            <span className="text-[#0099DB]">#</span>small-projects
-          </p>
-          <div className="py-[50px] flex gap-3 flex-wrap justify-between">
-            {smallProjects?.map((content, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 w-full md:max-w-[280px] h-full border border-slate-200"
-              >
-                <div className="flex gap-3 border-y p-1 pl-3 flex-wrap text-[#ABB2BF]">
-                  {content.fields.technology.map((tech, i) => (
-                    <p key={i}>{tech}</p>
-                  ))}
+          <div id="small-projects" className="scroll-mt-12">
+            <p
+              id="small-projects"
+              className="font-medium text-[32px] flex items-center"
+            >
+              <span className="text-[#0099DB]">#</span>small-projects
+            </p>
+            <div className="py-[50px] flex gap-3 flex-wrap justify-between">
+              {smallProjects?.map((content, i) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 w-full md:max-w-[280px] h-full border border-slate-200"
+                >
+                  <div className="flex gap-3 border-y p-1 pl-3 flex-wrap text-[#ABB2BF]">
+                    {content.fields.technology.map((tech, i) => (
+                      <p key={i}>{tech}</p>
+                    ))}
+                  </div>
+                  <div className="p-4 text-[#ABB2BF]">
+                    <p className="font-medium text-[24px] text-white">
+                      {content.fields.title}
+                    </p>
+                    <p className="my-[16px]">{content.fields.description}</p>
+                    <button
+                      className="hover:text-white h-[35px] w-[110px] border border-[#0099DB] hover:bg-[#00567b]"
+                      onClick={() => {
+                        window.open(content.fields.url);
+                      }}
+                    >
+                      Visit {"~~>"}
+                    </button>
+                  </div>
                 </div>
-                <div className="p-4 text-[#ABB2BF]">
-                  <p className="font-medium text-[24px] text-white">
-                    {content.fields.title}
-                  </p>
-                  <p className="my-[16px]">{content.fields.description}</p>
-                  <button
-                    className="hover:text-white h-[35px] w-[110px] border border-[#0099DB] hover:bg-[#00567b]"
-                    onClick={() => {
-                      window.open(content.fields.url);
-                    }}
-                  >
-                    Visit {"~~>"}
-                  </button>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

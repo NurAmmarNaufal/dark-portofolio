@@ -35,7 +35,7 @@ export const Footer = () => {
   }, []);
 
   return (
-    <div className="mt-10 pb-1 w-full relative lg:px-10 xl:max-w-[1280px]">
+    <div className="mt-10 pb-1 w-full relative xl:max-w-[1280px] md:mx-[100px] lg:px-10">
       <hr className="border-0 h-[2px] w-full bg-[#ABB2BF]" />
       <div className="my-5">
         <div className="md:flex md:justify-between mt-10 ">
