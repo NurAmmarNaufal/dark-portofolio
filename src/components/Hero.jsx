@@ -10,27 +10,118 @@ const Hero = () => {
 
   const [content, setContent] = useState();
   const [loadingQuotes, setLoadingQuotes] = useState();
-  const [quote, setQuote] = useState({
-    author: "Nan",
-    content:
-      "if today impossible, tomorrow i'm_possible, the day after tomorrow i'm master !",
-  });
+
+  const famousQuotes = [
+    {
+      author: "Nan",
+      content:
+        "if today impossible, tomorrow i'm_possible, the day after tomorrow i'm master !",
+    },
+    {
+      author: "Steve Jobs",
+      content: "The only way to do great work is to love what you do.",
+    },
+    {
+      author: "Winston Churchill",
+      content:
+        "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+    },
+    {
+      author: "Sam Levenson",
+      content: "Don’t watch the clock; do what it does. Keep going.",
+    },
+    {
+      author: "Theodore Roosevelt",
+      content: "Believe you can and you're halfway there.",
+    },
+    {
+      author: "William James",
+      content: "Act as if what you do makes a difference. It does.",
+    },
+    {
+      author: "Norman Vaughan",
+      content: "Dream big and dare to fail.",
+    },
+    {
+      author: "Wayne Gretzky",
+      content: "You miss 100% of the shots you don’t take.",
+    },
+    {
+      author: "Nelson Mandela",
+      content: "It always seems impossible until it’s done.",
+    },
+    {
+      author: "C.S. Lewis",
+      content:
+        "Hardships often prepare ordinary people for an extraordinary destiny.",
+    },
+    {
+      author: "Eleanor Roosevelt",
+      content:
+        "The future belongs to those who believe in the beauty of their dreams.",
+    },
+    {
+      author: "Thomas Edison",
+      content:
+        "I have not failed. I've just found 10,000 ways that won't work.",
+    },
+    {
+      author: "Abraham Lincoln",
+      content: "The best way to predict the future is to create it.",
+    },
+    {
+      author: "Theodore Roosevelt",
+      content: "Do what you can, with what you have, where you are.",
+    },
+    {
+      author: "Eleanor Roosevelt",
+      content:
+        "Great minds discuss ideas; average minds discuss events; small minds discuss people.",
+    },
+    {
+      author: "Mahatma Gandhi",
+      content: "You must be the change you wish to see in the world.",
+    },
+    {
+      author: "Albert Einstein",
+      content: "In the middle of every difficulty lies opportunity.",
+    },
+    {
+      author: "Dalai Lama",
+      content:
+        "Happiness is not something ready made. It comes from your own actions.",
+    },
+    {
+      author: "Albert Einstein",
+      content: "Strive not to be a success, but rather to be of value.",
+    },
+    {
+      author: "George Addair",
+      content: "Everything you’ve ever wanted is on the other side of fear.",
+    },
+    {
+      author: "Les Brown",
+      content:
+        "Shoot for the moon. Even if you miss, you'll land among the stars.",
+    },
+  ];
+
+  const [quote, setQuote] = useState(famousQuotes[0]);
+
+  const random = async () => {
+    setLoadingQuotes(true);
+
+    const randomQuote =
+      famousQuotes[Math.floor(Math.random() * famousQuotes.length)];
+    setQuote(randomQuote);
+    setLoadingQuotes(false);
+  };
 
   useEffect(() => {
     getAuthor().then((response) => {
       setContent(response.items[0].fields);
     });
   }, []);
-
-  const random = async () => {
-    setLoadingQuotes(true);
-    await fetch("http://api.quotable.io/random")
-      .then((response) => response.json())
-      .then((dat) => {
-        setQuote(dat);
-        setLoadingQuotes(false);
-      });
-  };
 
   return (
     <div id="home" className="scroll-mt-16 lg:px-10">
