@@ -71,20 +71,6 @@ const CompleteProject = () => {
             <p className="text-base ml-2 font-medium tracking-widest">Nan</p>
           </a>
           <div>
-            <div
-              className={`text-[#ABB2BF] text-[16px] hidden md:flex items-center md:gap-5`}
-            >
-              <select
-                name=""
-                id=""
-                disabled
-                className="cursor-pointer bg-transparent w-12"
-                onChange={lang}
-              >
-                <option value="en">EN</option>
-                <option value="id">ID</option>
-              </select>
-            </div>
 
             <div className="md:hidden absolute right-8 cursor-pointer">
               {!toggle ? (
@@ -118,15 +104,6 @@ const CompleteProject = () => {
                 <a href="/" className="hover:text-white">
                   <span className="text-[#0099DB]">#</span>Home
                 </a>
-                <select
-                  name=""
-                  id=""
-                  className="cursor-pointer bg-transparent w-12 mt-2"
-                  onChange={lang}
-                >
-                  <option value="en">EN</option>
-                  <option value="id">ID</option>
-                </select>
                 <div className="flex mt-5 gap-3 items-center justify-center">
                   <Icon
                     icon="ri:github-fill"

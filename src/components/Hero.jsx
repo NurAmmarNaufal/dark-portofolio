@@ -24,7 +24,7 @@ const Hero = () => {
 
   const random = async () => {
     setLoadingQuotes(true);
-    await fetch("https://api.quotable.io/random")
+    await fetch("http://api.quotable.io/random")
       .then((response) => response.json())
       .then((dat) => {
         setQuote(dat);
@@ -36,9 +36,14 @@ const Hero = () => {
     <div id="home" className="scroll-mt-16 lg:px-10">
       <div className="mt-[62px] md:flex pb-10">
         <div className="md:mt-[100px]">
+          <div className="flex items-center">
+            <p className="text-[44px] font-semibold">Hi</p>
+            <p className="text-[44px] animate-wave py-2">👋</p>
+            <p className="text-[44px] font-semibold">,</p>
+          </div>
           <p className="text-[44px] font-semibold">
-            Hi👋, I'm Ammar a{" "}
-            <span className="text-[#0099DB]">full-stack </span> developer
+            I'm Ammar a <span className="text-[#0099DB]">full-stack </span>{" "}
+            developer
             {/* and{" "}
             <span className="text-[#0099DB]"> full-stack developer </span>{" "} */}
           </p>

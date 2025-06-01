@@ -94,16 +94,6 @@ function ProjectsExt() {
               <a href="#small-projects" className="hover:text-white">
                 <span className="text-[#0099DB]">#</span>small-projects
               </a>
-
-              <select
-                name=""
-                id=""
-                className="cursor-pointer bg-transparent w-12"
-                onChange={lang}
-              >
-                <option value="en">EN</option>
-                <option value="id">ID</option>
-              </select>
             </div>
 
             <div className="md:hidden absolute right-8 cursor-pointer">
@@ -141,15 +131,6 @@ function ProjectsExt() {
                 <a href="#big-projects" className="hover:text-white">
                   <span className="text-[#0099DB]">#</span>big-projects
                 </a>
-                <select
-                  name=""
-                  id=""
-                  className="cursor-pointer bg-transparent w-12 mt-2"
-                  onChange={lang}
-                >
-                  <option value="en">EN</option>
-                  <option value="id">ID</option>
-                </select>
                 <div className="flex mt-5 gap-3 items-center justify-center">
                   <Icon
                     icon="ri:github-fill"

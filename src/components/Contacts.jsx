@@ -75,8 +75,11 @@ const Contacts = () => {
                 key={i}
                   className="flex items-center text-xs flex-sh cursor-pointer hover:text-white mt-4"
                   title="send message via email"
+                  // onClick={() => {
+                  //   setMenu(!menu);
+                  // }}
                   onClick={() => {
-                    setMenu(!menu);
+                    window.open(`mailto:${media.fields.socialMediaUrl}`);
                   }}
                 >
                   <Icon icon={media.fields.urlIcon} width="20" />
