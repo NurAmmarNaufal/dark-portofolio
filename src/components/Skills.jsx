@@ -11,6 +11,7 @@ const Skills = () => {
   useEffect(() => {
     getAuthor().then((response) => {
       setContents(response.items);
+      console.log(response.items);
     });
   }, []);
 
@@ -27,16 +28,6 @@ const Skills = () => {
         <div className="flex gap-5 flex-wrap md:mt-20">
           <div>
             <div className="w-[150px] h-auto border border-white">
-              <p className="font-semibold p-2 border-b">{contents[4]?.fields.title}</p>
-              <div className="font-normal text-[#ABB2BF] p-2">
-                {contents[4]?.fields.lists.map((list, i) => (
-                  <p key={i}>{list}</p>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="w-[150px] h-auto border border-white">
               <p className="font-semibold p-2 border-b">{contents[3]?.fields.title}</p>
               <div className="font-normal text-[#ABB2BF] p-2">
                 {contents[3]?.fields.lists.map((list, i) => (
@@ -44,10 +35,20 @@ const Skills = () => {
                 ))}
               </div>
             </div>
+          </div>
+          <div>
+            <div className="w-[150px] h-auto border border-white">
+              <p className="font-semibold p-2 border-b">{contents[4]?.fields.title}</p>
+              <div className="font-normal text-[#ABB2BF] p-2">
+                {contents[4]?.fields.lists.map((list, i) => (
+                  <p key={i}>{list}</p>
+                ))}
+              </div>
+            </div>
             <div className="w-[150px] h-auto border border-white mt-5">
-              <p className="font-semibold p-2 border-b">{contents[0]?.fields.title}</p>
+              <p className="font-semibold p-2 border-b">{contents[1]?.fields.title}</p>
               <div className="font-normal text-[#ABB2BF] p-2 flex flex-wrap gap-3">
-                {contents[0]?.fields.lists.map((list, i) => (
+                {contents[1]?.fields.lists.map((list, i) => (
                   <p key={i}>{list}</p>
                 ))}
               </div>
@@ -63,9 +64,9 @@ const Skills = () => {
               </div>
             </div>
             <div className="w-[150px] h-auto border border-white mt-5">
-              <p className="font-semibold p-2 border-b">{contents[1]?.fields.title}</p>
+              <p className="font-semibold p-2 border-b">{contents[0]?.fields.title}</p>
               <div className="font-normal text-[#ABB2BF] p-2 flex flex-wrap gap-3">
-                {contents[1]?.fields.lists.map((list, i) => (
+                {contents[0]?.fields.lists.map((list, i) => (
                   <p key={i}>{list}</p>
                 ))}
               </div>
