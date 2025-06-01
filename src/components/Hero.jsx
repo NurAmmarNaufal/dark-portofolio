@@ -125,7 +125,7 @@ const Hero = () => {
 
   return (
     <div id="home" className="scroll-mt-16 lg:px-10">
-      <div className="mt-[62px] md:flex pb-10">
+      <div className="mt-[62px] md:flex items-end pb-10">
         <div className="md:mt-[100px]">
           <div className="flex items-center">
             <p className="text-[44px] font-semibold">Hi</p>

@@ -63,8 +63,8 @@ function AboutmeExt() {
   }
 
   return (
-    <div className="text-white font-Fira-code bg-[#282C33] h-full relative mx-4">
-      <div className="w-[32px] h-[311px] ml-[17px] hidden md:flex flex-col items-center gap-2 fixed">
+    <div className="text-white font-Fira-code bg-[#282C33] h-full relative flex flex-col items-center mx-4">
+      <div className="w-[32px] h-[311px] ml-[17px] hidden md:flex flex-col items-center gap-2 fixed left-0">
         <hr className="border-0 w-[2px] h-[200px] bg-white mb-3 opacity-60" />
         {sosmeds.map((sosmed, i) => {
           if (sosmed.fields.socialMediaTitle !== "email") {
@@ -83,17 +83,17 @@ function AboutmeExt() {
           }
         })}
       </div>
-      <div id="container" className="md:mx-[100px] lg:mx-[171px]">
+      <div id="container" className="md:mx-[100px] w-full xl:max-w-[1280px]">
         <Navbar />
         {/* who am i */}
-        <div className="pt-[70px]">
+        <div className="lg:px-10 pt-[70px]">
           <p className="font-medium text-[32px] flex items-center">
             <span className="text-[#0099DB]">/</span>about-me
           </p>
-          <div className="md:flex justify-between gap-32 text-[#ABB2BF]">
+          <div className="md:flex justify-between items-center gap-32 text-[#ABB2BF]">
             <div className="flex-1">
-              <p className="pt-2">Who am I ?</p>
-              <p className="mt-[50px]">
+              <p className="pt-5">Who am I ?</p>
+              <p className="mt-[30px]">
                 Hello, i'm Nur Ammar Naufal shortened to{" "}
                 <span className="font-medium border-b-2 border-[#0099DB]">
                   Nan
@@ -130,7 +130,7 @@ function AboutmeExt() {
           </div>
         </div>
         {/* skills */}
-        <div id="skills" className="pt-[70px]">
+        <div id="skills" className="lg:px-10 pt-[70px]">
           <p className="font-medium text-[32px] flex items-center">
             <span className="text-[#0099DB]">#</span>skills
           </p>
@@ -152,7 +152,7 @@ function AboutmeExt() {
           </div>
         </div>
         {/* my fun facts */}
-        <div id="my-fun-facts" className="pt-[70px]">
+        <div id="my-fun-facts" className="lg:px-10 pt-[70px]">
           <p className="font-medium text-[32px] flex items-center">
             <span className="text-[#0099DB]">#</span>my-fun-facts
           </p>
@@ -165,7 +165,7 @@ function AboutmeExt() {
           </div>
         </div>
         {/* my fun facts */}
-        <div id="certificate" className="pt-[70px]">
+        <div id="certificate" className="lg:px-10 pt-[70px]">
           <p className="font-medium text-[32px] flex items-center">
             <span className="text-[#0099DB]">#</span>certificate
           </p>
