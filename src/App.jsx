@@ -6,6 +6,10 @@ import AboutmeExt from "./AboutmeExt";
 import CompleteProject from "./components/CompleteProjects/CompleteProject";
 
 function App() {
+  console.log = () => {};
+  console.warn = () => {};
+  console.error = () => {};
+  console.info = () => {};
   return (
     <Routes>
       <Route>
