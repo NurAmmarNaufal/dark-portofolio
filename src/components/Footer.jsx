@@ -5,7 +5,6 @@ import logo from "../assets/logo.png";
 import Contentful from "../auth/Contentful";
 
 export const Footer = () => {
-  
   const [contents, setContents] = useState([]);
   const [paragraphFooter, setParagraphFooter] = useState();
   const [footerCredit, setFooterCredit] = useState();
@@ -22,13 +21,16 @@ export const Footer = () => {
         const { getAuthor } = Contentful("aboutMe");
         getAuthor().then((response) => {
           // console.log(response.items[0].fields.paragraphFooter.content[0].content[0].value);
-          setParagraphFooter(response.items[0].fields.paragraphFooter.content[0].content[0].value);
+          setParagraphFooter(
+            response.items[0].fields.paragraphFooter.content[0].content[0]
+              .value,
+          );
         });
-      }else {
+      } else {
         const { getAuthor } = Contentful("author");
         getAuthor().then((response) => {
           // console.log(response.items[0].fields.footerCredit);
-          setFooterCredit(response.items[0].fields.footerCredit)
+          setFooterCredit(response.items[0].fields.footerCredit);
         });
       }
     }
@@ -46,9 +48,7 @@ export const Footer = () => {
                 Nan
               </p>
             </div>
-            <p className="my-5">
-              {paragraphFooter}
-            </p>
+            <p className="my-5">{paragraphFooter}</p>
           </div>
           <div className="my-5">
             <p className="font-medium text-[20px] mb-2">Media</p>
@@ -73,7 +73,8 @@ export const Footer = () => {
           </div>
         </div>
         <p className="text-[#ABB2BF] text-[10px] md:text-[13px] flex justify-center md:mt-10">
-          {footerCredit}
+          {/* {footerCredit} */}
+          By Nur Ammar Naufal. Made with 🤗, {new Date().getFullYear()}.
         </p>
       </div>
     </div>
